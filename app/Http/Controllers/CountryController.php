@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Course;
+use App\Models\College;
+use App\Models\AcademicDegree;
 
 class CountryController extends Controller
 {
@@ -14,8 +16,11 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {         
+        $countries = Country::orderBy('updated_at','DESC')->get();
+        $courses = Course::orderBy('updated_at','DESC')->get();
+        return view('countries')
+        ->with(['countries'=>$countries,'courses'=>$courses]);
     }
 
     /**
@@ -48,10 +53,13 @@ class CountryController extends Controller
     public function show($slug)
     {
         $country = Country::where('slug', $slug)->first();
+        $colleges = College::where('country_slug',$slug)->get();
+        $degrees = AcademicDegree::orderBy('updated_at','DESC')->get();
         $countries = Country::orderBy('updated_at','DESC')->get();
+        
         $courses = Course::orderBy('updated_at','DESC')->get();
         return view('single_country')
-        ->with(['country'=> $country, 'countries'=>$countries,'courses'=>$courses]);
+        ->with(['country'=> $country, 'countries'=>$countries,'courses'=>$courses,'colleges'=>$colleges,'degrees' => $degrees]);
     }
 
     /**

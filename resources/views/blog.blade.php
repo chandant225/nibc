@@ -47,7 +47,7 @@
                             <h4><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h4>
                             <p>  {!! Str::words( $blog->description , 35, ' ...') !!}</p>
                          
-                            <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
+                            <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">View More</a>
                         </div>
                     </div>
                     @endforeach

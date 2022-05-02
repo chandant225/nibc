@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Blog;
 use App\Models\Country;
 use App\Models\Course;
 use App\Models\Slider;
 use App\Models\BlogCategory;
-use Illuminate\Support\Str;
+use App\Models\AcademicDegree;
+use App\Models\College;
+
 
 
 
@@ -47,5 +50,23 @@ class PageController extends Controller
         return view('filtered_blogs')
         ->with(['blogs' => $blogs, 'categories' => $categories, 'sidebar_blogs' => $sidebar_blogs,'countries' => $countries, 'courses' => $courses]);
     }
+
+    public function avaliable_courses($country_slug,$degree_slug) {
+        $countries = Country::orderBy('updated_at','DESC')->get();
+        $courses = Course::orderBy('updated_at','DESC')->get();
+        $colleges = College::where('country_slug',$country_slug)->get();
+        $avaliable_courses = Course::where('country_slug', '=',$country_slug)->where('degree_slug', '=', $degree_slug)->get();
+        return view('avaliable_courses')
+        ->with(['countries' => $countries, 'courses' => $courses,'avaliable_courses'=>$avaliable_courses,'degree'=>$degree_slug,'country_slug' => $country_slug,'colleges'=>$colleges]);
+    }
+
+    public function search_college(Request $request){
+        $country = $request->input('country');
+        $course = $request->input('course');
+        $result_search = College::where('country_slug',$country)->get();
+        return view('search_page')->with(['search_results'=> $result_search]);
+    }
+
+ 
 
 }

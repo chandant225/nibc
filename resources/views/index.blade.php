@@ -25,50 +25,8 @@
       </div>
   
       <!-- banner end -->
-  
-      <!-- search section start -->
-      <div
-        class="search-area pt-2 pd-bottom-60 mb-3"
-        style="background-color: #314c7d"
-      >
-        <div class="section-title text-center mt-5">
-          <h2 class="title text-white">
-            Search your preferred country and courses
-          </h2>
-        </div>
-        <div class="search-boxes container">
-          <form action="" class="">
-            <select class="custom-select select-with-search">
-              <option selected>Country Select</option>
-              @if(count($countries) === 0)
-              <option>No country avaliable</option>
-              @endif
-               @foreach($countries as $country)
-               <option selected>{{$country->title}}</option>
-               @endforeach
-            </select>
-            <select class="custom-select select-with-search">
-              <option selected>Course Select</option>
-              @if(count($courses) === 0)
-              <option>No courses avaliable</option>
-              @endif
-               @foreach($courses as $course)
-               <option selected>{{$course->title}}</option>
-               @endforeach
-            
-            </select>
-            <select class="custom-select select-with-search">
-              <option selected>University Select</option>
-              <option value="1">No universities avaliable</option>
-            </select>
-            <button type="submit" class="right-side-btn">
-              <i class="fa fa-search"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-      <!-- search section end -->
-  
+      <!-- search form   -->
+        @include('layouts.search_form')
       <!--country-area start-->
       <div class="course-area pd-top-100 pd-bottom-60">
         <div style="overflow: hidden;" class="container">
@@ -137,7 +95,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More</a>
+                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More >></a>
                             </div>
                           </div>
                         </div>
@@ -230,7 +188,7 @@
                       <div class="details">
                         <div class="details-inner">
                           <h5 class="mb-md-3 mb-sm-2">
-                            <a href="{{route('course.show',['slug'=> $course->slug])}}">{{$course->title}}</a>
+                            <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
                           </h5>
                           <div class="cat-area">
                             <?php
@@ -269,7 +227,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text" href="{{route('course.show',['slug'=> $course->slug])}}">Read More</a>
+                              <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More >></a>
                             </div>
                           </div>
                         </div>
@@ -429,7 +387,7 @@
                       <p class="mt-3">{{$blog->created_at}}</p>
                     </div>
                     <h4><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h4>
-                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
+                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More >></a>
                   </div>
                 </div>
               </div>

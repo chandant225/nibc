@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Course;
+use App\Models\FeeStructure;
 use App\Models\Country;
-use App\Models\College;
+use App\Models\Course;
 
-class CourseController extends Controller
+class FeeStructureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $countries = Country::orderBy('updated_at','DESC')->get();
-        $courses = Course::orderBy('updated_at','DESC')->get();
-
-        $page_courses = Course::latest()->paginate(8);
-        return view('course')->with(['page_courses' => $page_courses,'courses'=>$courses,'countries'=>$countries]);
+        //
     }
 
     /**
@@ -47,16 +43,21 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $country_slug $slug 
+     * @param  string $country_slug $college_slug $degree_slug $course_slug
      * @return \Illuminate\Http\Response
      */
-    public function show($country_slug,$slug)
+    public function show($country_slug, $college_slug,$degree_slug, $course_slug)
     {
+
         $countries = Country::orderBy('updated_at','DESC')->get();
         $courses = Course::orderBy('updated_at','DESC')->get();
-        $colleges = College::where('country_slug', $country_slug)->get();
-        $course = Course::where('slug',"=", $slug)->where('country_slug',"=",$country_slug)->first();
-        return view('single_course')->with(['course'=>$course,'courses'=>$courses,'countries'=>$countries,'colleges' => $colleges]);
+
+        $fee_structure = FeeStructure::where('country_slug',"=", $country_slug)
+        ->where('college_slug',"=",$college_slug)
+        ->where('course_slug',"=", $course_slug)
+        ->where('academic_degree_slug',"=", $degree_slug)->first();
+        return view('fee_structure')
+        ->with(['fee_structure'=>$fee_structure,'countries'=>$countries, 'courses' => $courses]);
     }
 
     /**

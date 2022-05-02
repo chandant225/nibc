@@ -27,21 +27,11 @@
             <li>
               <a href="{{route('about-us')}}">About Us</a>
             </li>
-            <li class="menu-item-has-children">
-              <a href="">Countries</a>
-              <ul class="sub-menu">
-                @foreach($countries as $country)
-                <li><a href="">{{$country->title}}</a></li>
-                @endforeach
-              </ul>
+            <li>
+              <a href="{{route('country.index')}}">Countries</a>
             </li>
-            <li class="menu-item-has-children">
+            <li>
               <a href="{{route('course.index')}}">Courses</a>
-              <ul class="sub-menu">
-                @foreach($courses as $course)
-                <li><a href="">{{$course->title}}</a></li>
-                @endforeach
-              </ul>
             </li>
             <li>
               <a href="{{route('gallery')}}">Gallery</a>

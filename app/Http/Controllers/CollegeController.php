@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Course;
-use App\Models\Country;
 use App\Models\College;
 
-class CourseController extends Controller
+class CollegeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $countries = Country::orderBy('updated_at','DESC')->get();
-        $courses = Course::orderBy('updated_at','DESC')->get();
-
-        $page_courses = Course::latest()->paginate(8);
-        return view('course')->with(['page_courses' => $page_courses,'courses'=>$courses,'countries'=>$countries]);
+        //
     }
 
     /**
@@ -47,16 +41,14 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $country_slug $slug 
+     * @param  string  $slug $country_slug
      * @return \Illuminate\Http\Response
      */
     public function show($country_slug,$slug)
     {
-        $countries = Country::orderBy('updated_at','DESC')->get();
-        $courses = Course::orderBy('updated_at','DESC')->get();
-        $colleges = College::where('country_slug', $country_slug)->get();
-        $course = Course::where('slug',"=", $slug)->where('country_slug',"=",$country_slug)->first();
-        return view('single_course')->with(['course'=>$course,'courses'=>$courses,'countries'=>$countries,'colleges' => $colleges]);
+        $college = College::where('slug', $slug)->first();
+        $colleges = College::where('country_slug',$country_slug)->get();
+        return view('single_college')->with(['college' => $college, 'colleges' => $colleges]);
     }
 
     /**

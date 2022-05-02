@@ -4,15 +4,15 @@
 <div>
     <!-- page title start -->
   <div class="page-title-area bg-overlay"
-  style="background-image: url('/storage/{{$course->image}}')">
+  style="background-image: url('/storage/{{$college->image}}')">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
         <div class="breadcrumb-inner">
-          <h2 class="page-title">{{$course->title}}</h2>
+          <h2 class="page-title">{{$college->title}}</h2>
           <ul class="page-list">
             <li><a href="{{route('home')}}">Home</a></li>
-            <li>{{$course->title}}</li>
+            <li>{{$college->title}}</li>
           </ul>
         </div>
       </div>
@@ -27,67 +27,47 @@
       <div class="col-lg-8 col-12">
         <div class="course-details-page">
           <div class="thumb">
-            <img src="/storage/{{$course->image}}" class="w-full object-cover" alt="img" />
+            <img src="/storage/{{$college->image}}" class="w-full object-cover" alt="img" />
           </div>
           <div class="course-details-nav-tab text-center">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" id="tab1-tab" data-toggle="tab"
                   href="#tab1" role="tab" aria-controls="tab1"
-                  aria-selected="true"><i class="fa fa-book"></i> Overview</a>
+                  aria-selected="true"><i class="fa fa-book"></i>Overview</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="tab2-tab" data-toggle="tab"
                   href="#tab2" role="tab" aria-controls="tab2"
                   aria-selected="false">
-                  <i class="fa fa-file-text-o"></i> Course Features</a>
+                  <i class="fa fa-file-text-o"></i>Procedure</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="tab3-tab" data-toggle="tab"
-                  href="#tab3" role="tab" aria-controls="tab3"
-                  aria-selected="false">
-                  <i class="fa fa-th"></i>Projects & Resources</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="tab4-tab" data-toggle="tab"
-                  href="#tab4" role="tab" aria-controls="tab4"
-                  aria-selected="false">
-                  <i class="fa fa-th"></i>Colleges</a>
-              </li>
+              <a class="nav-link" id="tab3-tab" data-toggle="tab"
+              href="#tab3" role="tab" aria-controls="tab3"
+              aria-selected="false">
+              <i class="fa fa-file-text-o"></i>Requirement</a>
+          </li>
             </ul>
           </div>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="tab1" role="tabpanel"
               aria-labelledby="tab1-tab">
               <div class="course-details-content">
-             {!! $course->overview !!}
+             {!! $college->overview !!}
               </div>
             </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel"
               aria-labelledby="tab2-tab">
               <div class="course-details-content">
-                {!! $course->features !!}
+                {!! $college->procedure !!}
               </div>
             </div>
             <div class="tab-pane fade" id="tab3" role="tabpanel"
-              aria-labelledby="tab3-tab">
-                {!! $course->project  !!}
+            aria-labelledby="tab3-tab">
+            <div class="course-details-content">
+              {!! $college->requirement !!}
             </div>
-            <div class="tab-pane fade" id="tab4" role="tabpanel"
-            aria-labelledby="tab4-tab">
-            <div class="grid grid-cols-3 gap-3">
-              @foreach ($colleges as $college)
-              <div class="shadow-lg rounded">
-                  <img src="/storage/{{$college->image}}" alt="{{$college->title}}" class="object-cover h-36" />
-                  <p class="text-gray-600 mt-2 px-2">{{$college->title}}</p>
-                  <div class="flex flex-row gap-2 justify-between items-center py-2 px-2"> 
-                     <a href="{{route('fees.show',['country_slug'=>$college->country_slug,'college_slug'=>$college->slug,'degree_slug'=>$course->degree_slug,'course_slug'=>$course->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-1 rounded py-2">view fees</button></a>
-                     <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-1 rounded py-2">view details</button></a>
-                  </div>
-              </div>
-              @endforeach
-            </div>
-          </div>
+          </div>procedure
           </div>
         </div>
       </div>
@@ -95,23 +75,23 @@
       <div class="col-lg-4 col-12">
         <div class="td-sidebar">
           <div class="widget widget-recent-post">
-            <h4 class="widget-title">Top Courses</h4>
+            <h4 class="widget-title">{{"Top colleges in" . " " . $college->country_slug}}</h4>
             <ul>
 
-              @foreach($courses as $course)
+              @foreach($colleges as $college)
               <li>
                 <div class="media">
                   <div class="media-left">
-                    <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">
-                      <img src="/storage/{{$course->image}}" class="w-28 h-28 object-cover" alt="blog" />
+                    <a href="{{route('course.show',['slug' => $college->slug,'country_slug' => $college->country_slug])}}">
+                      <img src="/storage/{{$college->image}}" class="w-28 h-28 object-cover" alt="blog" />
                     </a>
                   </div>
                   <div class="media-body align-self-center">
                     <h5 class="title">
-                      <a  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
+                      <a  href="{{route('college_details',['country_slug' => $college->country_slug,'slug' => $college->slug])}}">{{$college->title}}</a>
                     </h5>
                     <div class="post-info">
-                      <i class="fa fa-calendar-times-o"></i>{{$course->created_at}}
+                      <i class="fa fa-calendar-times-o"></i>{{$college->created_at}}
                     </div>
                   </div>
                 </div>
@@ -149,7 +129,7 @@
       <h4 class="mb-4">Course Available in</h4>
       <div class="container overflow-hidden">
       <div class="swiper">
-        <div class="swiper-wrapper">
+        {{-- <div class="swiper-wrapper">
             @foreach($countries as $country)
             <div class="swiper-slide">
               <div class="item">
@@ -208,7 +188,7 @@
               </div>
             </div>
             @endforeach
-        </div>
+        </div> --}}
       </div>
       </div>
     </div>

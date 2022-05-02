@@ -650,9 +650,7 @@ ul {
 .section-title .small-title-color {
     color: var(--main-color);
 }
-.section-title .btn {
-    margin-top: 32px;
-}
+
 .section-title.style-white .sub-title {
     color: #fff;
 }

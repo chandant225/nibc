@@ -20,58 +20,8 @@
       </div>
     </div>
   </div>
-  <!-- page title end -->
-  <!-- search section start -->
-  <div
-    class="search-area pt-2 pd-bottom-60 mb-3"
-    style="background-color: #314c7d"
-  >
-    <div class="section-title text-center mt-5">
-      <h2 class="title text-white">
-        Search your preferred country and courses
-      </h2>
-    </div>
-    <div class="search-boxes container">
-      <form action="" class="">
-        <select class="custom-select select-with-search">
-          <option selected>Country Select</option>
-          <option value="1">USA</option>
-          <option value="2">UK</option>
-          <option value="3">Australia</option>
-          <option value="4">India</option>
-        </select>
-        <select class="custom-select select-with-search">
-          <option selected>Course Select</option>
-          <option value="1">Course One</option>
-          <option value="2">Course Two</option>
-          <option value="3">Course Three</option>
-        </select>
-        <select class="custom-select select-with-search">
-          <option selected>University Select</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-        </select>
-        <button type="submit" class="right-side-btn">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-    </div>
-  </div>
-  <!-- search section end -->
+
+  @include('layouts.search_form')
   <!--course-area start-->
   <div class="course-area pd-top-120 pd-bottom-120">
     <div class="container">
@@ -129,7 +79,7 @@
                     </div>
                   </div>
                   <div class="col-6 align-self-center text-right">
-                    <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug])}}">Read More</a>
+                    <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                   </div>
                 </div>
               </div>
@@ -137,16 +87,12 @@
           </div>
         </div>
         @endforeach
-
-
         
       </div>
       @endif
       <div>
         {{$page_courses->links()}}
       </div>
-  
-    
     </div>
   </div>
   <!--course-area end-->

@@ -24,55 +24,7 @@
   </div>
   <!-- page title end -->
   <!-- search section start -->
-  <div
-    class="search-area pt-2 pd-bottom-60 mb-3"
-    style="background-color: #314c7d"
-  >
-    <div class="section-title text-center mt-5">
-      <h2 class="title text-white">
-        Search your preferred country and courses
-      </h2>
-    </div>
-    <div class="search-boxes container">
-      <form action="" class="">
-        <select class="custom-select select-with-search">
-          <option selected>Country Select</option>
-          <option value="1">USA</option>
-          <option value="2">UK</option>
-          <option value="3">Australia</option>
-          <option value="4">India</option>
-        </select>
-        <select class="custom-select select-with-search">
-          <option selected>Course Select</option>
-          <option value="1">Course One</option>
-          <option value="2">Course Two</option>
-          <option value="3">Course Three</option>
-        </select>
-        <select class="custom-select select-with-search">
-          <option selected>University Select</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-          <option value="3">Three</option>
-        </select>
-        <button type="submit" class="right-side-btn">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-    </div>
-  </div>
+    @include('layouts.search_form')
   <!-- search section end -->
 
   <!-- single blog page -->
@@ -111,7 +63,20 @@
                     aria-controls="tab2"
                     aria-selected="false"
                   >
-                    <i class="fa fa-file-text-o"></i> Procedures</a
+                  <i class="fas fa-cog mr-2"></i> Procedures</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="tab3-tab"
+                    data-toggle="tab"
+                    href="#tab3"
+                    role="tab"
+                    aria-controls="tab3"
+                    aria-selected="false"
+                  >
+                    <i class="fa fa-th mr-2"></i>Requirements</a
                   >
                 </li>
                 <li class="nav-item">
@@ -119,13 +84,12 @@
                     class="nav-link"
                     id="tab4-tab"
                     data-toggle="tab"
-                    href="#tab3"
+                    href="#tab4"
                     role="tab"
                     aria-controls="tab4"
                     aria-selected="false"
                   >
-                    <i class="fa fa-th"></i>requirements</a
-                  >
+                  <i class="fas fa-book-open mr-2"></i>Academics</a>
                 </li>
               </ul>
             </div>
@@ -154,12 +118,30 @@
                 class="tab-pane fade"
                 id="tab3"
                 role="tabpanel"
-                aria-labelledby="tab4-tab"
+                aria-labelledby="tab3-tab"
               >
                 <div class="course-details-content text-justify">
                 {!! $country->requirements !!}             
                 </div>
               </div>
+              <div
+              class="tab-pane fade"
+              id="tab4"
+              role="tabpanel"
+              aria-labelledby="tab4-tab"
+            >
+            <h4 class="text-gray-600">Academics degrees avaliable in this country</h4>
+              <div class="grid grid-cols-3 gap-4 mt-4">
+                @foreach($degrees as $degree)
+                <div class="shadow-lg rounded">
+                  <div class="p-1 text-center">
+                    <h1 style="">{{$degree->title}}</h1>
+                  </div>
+                  <a style="" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-3 rounded py-2">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
+                </div>
+                @endforeach
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -167,22 +149,22 @@
         <div class="col-lg-4 col-12">
           <div class="td-sidebar">
             <div class="widget widget-recent-post">
-              <h4 class="widget-title">Our Destinations</h4>
+              <h4 class="widget-title">{{'Top colleges in' ." ". $country->title}}</h4>
               <ul>
 
-                @foreach($countries as $country)
+                @foreach($colleges as $college)
                 <li>
                   <div class="media">
                     <div class="media-left">
                         <img
-                          src="/storage/{{$country->image}}"
+                          src="/storage/{{$college->image}}"
                           width="80"
                           height="80"
                           alt="blog"
                         />
                     </div>
                     <div class="media-body align-self-center">
-                      <h5 class="title"><a href="{{route('country.show',['slug' => $country->slug])}}">{{$country->title}}</a></h5>
+                      <h5 class="title"><a href="">{{$college->title}}</a></h5>
                     </div>
                   </div>
                 </li>
@@ -228,7 +210,7 @@
               <div class="details">
                 <div class="details-inner">
                   <h5 class="mb-md-3 mb-sm-2">
-                    <a href="#">{{$course->title}}</a>
+                    <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
                   </h5>
                   <div class="cat-area">
                     <?php
@@ -267,7 +249,7 @@
                       </div>
                     </div>
                     <div class="col-6 align-self-center text-right">
-                      <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug])}}">Read More</a>
+                      <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                     </div>
                   </div>
                 </div>
