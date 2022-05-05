@@ -63,6 +63,7 @@ Route::get('/college/{country_slug}/{slug}', [CollegeController::class,'show'])-
 
 
 
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

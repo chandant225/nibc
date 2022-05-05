@@ -4419,3 +4419,17 @@ button.right-side-btn {
 a:hover {
     text-decoration: none;
 }
+
+#error_icon {
+    transition: all 0.4s ease;
+    animation: scale 1s linear 0.5s infinite alternate-reverse forwards;
+}
+
+@keyframes scale {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}

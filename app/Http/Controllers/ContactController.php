@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Country;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -39,7 +40,37 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' =>'required',
+            'subject' =>'required',
+            'email' =>'required|email',
+            'phone' =>'required',
+            'message' =>'required',
+        ]);
+        add
+        Contact::create([
+            'name' => $request->input('name'),
+            'subject' => $request->input('subject'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'message' => $request->input('message'),
+        ]);
+
+              $mail_data = [
+                  'recipient' => 'chandant225@gmail.com',
+                  'fromEmail' => $request->email,
+                  'fromName' => $request->name,
+                  'phone' => $request->phone,
+                  'subject' => $request->subject,
+                  'body' => $request->message
+              ];
+              \Mail::send('email_template',$mail_data, function($message) use($mail_data) {
+                  $message->to($mail_data['recipient'])
+                    ->from($mail_data['fromEmail'], $mail_data['fromName'])
+                    ->subject($mail_data['subject']);
+              });
+              return redirect()->back()->with('success', 'Email Sent');
+      
     }
 
     /**

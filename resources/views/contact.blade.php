@@ -25,6 +25,16 @@
                 <div class="section-title text-center">
                     <h2 class="title">Get in touch</h2>
                 </div>
+                @if(Session::has('error'))
+                <div>
+                  {{Session::get('error')}}
+                </div>
+               @endif
+               @if(Session::has('success'))
+               <div>
+                 {{Session::get('success')}}
+               </div>
+               @endif
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="contact-page-thumb thumb" style="background-image: url('assets/img/bg/5.png')"></div>
@@ -35,23 +45,23 @@
                             <div class="row custom-gutters-20">
                                 <div class="col-lg-6">
                                     <label class="single-input-inner style-bg-border">
-                                        <input name="first_name" required type="text" placeholder="First Name">
-                                    </label>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label class="single-input-inner style-bg-border">
-                                        <input name="last_name" required type="text" placeholder="Last Name">
+                                        <input name="name" required type="text" placeholder="Name">
                                     </label>
                                 </div>
                              
-                                <div class="col-12">
+                                <div class="col-lg-6">
                                     <label class="single-input-inner style-bg-border">
                                         <input name="email" required  type="email" placeholder="Email">
                                     </label>
                                 </div>
                                 <div class="col-12">
                                     <label class="single-input-inner style-bg-border">
-                                        <input name="number" required  type="number" placeholder="Phone">
+                                        <input name="phone" required  type="number" placeholder="Phone">
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <label class="single-input-inner style-bg-border">
+                                        <input name="subject" required  type="text" placeholder="Subject">
                                     </label>
                                 </div>
                                 <div class="col-12">
