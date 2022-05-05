@@ -135,7 +135,7 @@
                 @foreach($degrees as $degree)
                 <div class="shadow-lg rounded">
                   <div class="p-1 text-center">
-                    <h1 style="">{{$degree->title}}</h1>
+                    <h5 style="">{{$degree->title}}</h5>
                   </div>
                   <a style="" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-3 rounded py-2">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
                 </div>
