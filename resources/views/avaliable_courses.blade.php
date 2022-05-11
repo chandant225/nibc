@@ -32,7 +32,20 @@
         <div class="row">
             <div class="col-lg-8">
               @if($avaliable_courses->IsEmpty())
-              <h4 class="py-2 text-red-600 font-bold">{{'Sorry, No courses are avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}</h4>
+
+              <section class='px-4 sm:px-6 lg:px-8'>
+                <div class="p-4 sm:p-14 bg-gray-100 rounded-2xl shadow border-2 font-mulish md:min-w-[692px]">
+                  <center class="py-6">
+                    <i id="error_icon" class="fas fa-exclamation-triangle text-4xl text-red-600"></i>
+                  </center>
+                  <h4 class="py-2 text-red-600 font-bold">{{'Sorry, No courses are avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}.</h4>
+                  <div class="flex justify-end">
+                    <a class="avaliable-course-btn" href="{{url()->previous()}}">
+                      << Go back
+                   </a>
+                  </div>
+                </div> 
+              </section>
               @elseif($avaliable_courses->IsNotEmpty())
               <h4 class="py-2">{{'List of courses avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}</h4>
               <div class="grid grid-cols-2 gap-6">
@@ -93,13 +106,13 @@
                             <li>
                                 <div class="media">
                                     <div class="media-left">
-                                        <a href="">
+                                        <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">
                                             <img src="/storage/{{$college->image}}" alt="blog" class="object-cover"   width="80"
                                             height="80">
                                         </a>
                                     </div>
                                     <div class="media-body align-self-center">
-                                        <h5 class="title"><a href="">{{$college->title}}</a></h5>
+                                        <h5 class="title"><a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h5>
                                     </div>
                                 </div>
                             </li>
@@ -111,7 +124,7 @@
                                                       
                         <ul class="catagory-items">
                            @foreach ($countries as $country)
-                            <li><a href=""><i class="fa fa-angle-right"></i>{{$country->title}}</a></li>
+                            <li><a href="{{route('country.show',['slug'=> $country->slug])}}"><i class="fa fa-angle-right"></i>{{$country->title}}</a></li>
                           @endforeach
                         </ul>
                     </div>

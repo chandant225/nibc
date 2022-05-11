@@ -118,7 +118,7 @@
                 <textarea type="text" required placeholder="message"></textarea>
                </label>
 
-              <button class="btn btn-base mx-auto d-block">Submit</button>
+              <button class="btn btn-dark w-full mx-auto d-block">Submit</button>
             </form>
           </div>
         </div>
@@ -126,50 +126,48 @@
       <!-- /.sidebar -->
     </div>
     <div class="course-area pd-top-100">
-      <h4 class="mb-4">Course Available in</h4>
+      <h4 class="mb-4">Available courses...</h4>
       <div class="container overflow-hidden">
       <div class="swiper">
-        {{-- <div class="swiper-wrapper">
-            @foreach($countries as $country)
+        <div class="swiper-wrapper">
+            @foreach($courses as $course)
             <div class="swiper-slide">
               <div class="item">
-                <div class="single-course-inner">
-                  <div class="thumb">
+                <div class="single-course-inner shadow">
+                  <div class="thumb relative">
                     <img
-                     src="/storage/{{$country->image}}"
+                     src="/storage/{{$course->image}}"
                       alt="img"
                       class="h-60"
                     />
+                    <button class="course_degree">{{$course->degree_slug}}</button>
                   </div>
                   <div class="details">
                     <div class="details-inner">
-                     
-                        <a href="#">{{ $country->title}}</a>
-                 
+                        <a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{ $course->title}}</a>
                       <p>
-                        {!! Str::words( $country->overview, 25, ' ...') !!}
-                      
+                        {!! Str::words( $course->overview, 25, ' ...') !!}
                       </p>
                     </div>
                     <div class="bottom-area">
                       <div class="row">
                         <div class="col-6 align-self-center">
                           <div class="rating-inner">
-                            @if($country->rating === 1)
+                            @if($course->rating === 1)
                             <i class="fa fa-star"></i>
-                            @elseif($country->rating === 2)
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            @elseif($country->rating === 3)
+                            @elseif($course->rating === 2)
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            @elseif($country->rating === 4)
+                            @elseif($course->rating === 3)
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
+                            @elseif($course->rating === 4)
                             <i class="fa fa-star"></i>
-                            @elseif($country->rating === 5)
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            @elseif($course->rating === 5)
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -179,7 +177,7 @@
                           </div>
                         </div>
                         <div class="col-6 align-self-center text-right">
-                          <a class="readmore-text" href="{{route('country.show',["slug" => $country->slug])}}">Read More</a>
+                          <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More >></a>
                         </div>
                       </div>
                     </div>
@@ -188,7 +186,7 @@
               </div>
             </div>
             @endforeach
-        </div> --}}
+        </div>
       </div>
       </div>
     </div>

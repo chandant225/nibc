@@ -75,14 +75,14 @@
             </div>
             <div class="tab-pane fade" id="tab4" role="tabpanel"
             aria-labelledby="tab4-tab">
-            <div class="grid grid-cols-3 gap-3">
+            <div class="grid grid-cols-2 gap-4">
               @foreach ($colleges as $college)
-              <div class="shadow-lg rounded">
-                  <img src="/storage/{{$college->image}}" alt="{{$college->title}}" class="object-cover h-36" />
-                  <p class="text-gray-600 mt-2 px-2">{{$college->title}}</p>
-                  <div class="flex flex-row gap-2 justify-between items-center py-2 px-2"> 
-                     <a href="{{route('fees.show',['country_slug'=>$college->country_slug,'college_slug'=>$college->slug,'degree_slug'=>$course->degree_slug,'course_slug'=>$course->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-1 rounded py-2">view fees</button></a>
-                     <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-1 rounded py-2">view details</button></a>
+              <div class="shadow rounded-lg overflow-hidden">
+                  <img src="/storage/{{$college->image}}" alt="{{$college->title}}" class="object-cover  w-full h-52" />
+                  <h5 class="card-title mt-4 px-3">{{$college->title}}</h5>
+                  <div class="flex flex-row gap-2 justify-between items-center py-3 px-3"> 
+                     <a href="{{route('fees.show',['country_slug'=>$college->country_slug,'college_slug'=>$college->slug,'degree_slug'=>$course->degree_slug,'course_slug'=>$course->slug])}}"><button class="avaliable-college">view fees</button></a>
+                     <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><button class="avaliable-college">view details</button></a>
                   </div>
               </div>
               @endforeach
@@ -138,7 +138,7 @@
                 <textarea type="text" required placeholder="message"></textarea>
                </label>
 
-              <button class="btn btn-base mx-auto d-block">Submit</button>
+              <button class="btn btn-dark mx-auto d-block w-full">Submit</button>
             </form>
           </div>
         </div>
@@ -153,7 +153,7 @@
             @foreach($countries as $country)
             <div class="swiper-slide">
               <div class="item">
-                <div class="single-course-inner">
+                <div class="single-course-inner shadow">
                   <div class="thumb">
                     <img
                      src="/storage/{{$country->image}}"
@@ -163,12 +163,9 @@
                   </div>
                   <div class="details">
                     <div class="details-inner">
-                     
-                        <a href="#">{{ $country->title}}</a>
-                 
+                        <a class="card-title" href="#">{{ $country->title}}</a>
                       <p>
                         {!! Str::words( $country->overview, 25, ' ...') !!}
-                      
                       </p>
                     </div>
                     <div class="bottom-area">
@@ -199,7 +196,7 @@
                           </div>
                         </div>
                         <div class="col-6 align-self-center text-right">
-                          <a class="readmore-text" href="{{route('country.show',["slug" => $country->slug])}}">Read More</a>
+                          <a class="readmore-text" href="{{route('country.show',["slug" => $country->slug])}}">Read More >></a>
                         </div>
                       </div>
                     </div>

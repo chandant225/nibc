@@ -47,7 +47,7 @@ class ContactController extends Controller
             'phone' =>'required',
             'message' =>'required',
         ]);
-        add
+        
         Contact::create([
             'name' => $request->input('name'),
             'subject' => $request->input('subject'),

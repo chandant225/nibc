@@ -9,7 +9,7 @@
                   <h3 class="title">
                     Our students have reached their DREAM CAREER through us.
                   </h3>
-                  <a class="btn btn-black" href="#">Enroll Today</a>
+                  <a href="#"><button class="footer-btn">Enroll Today</button></a>
                 </div>
               </div>
               <div class="col-xl-5 col-lg-4 d-none d-lg-block">

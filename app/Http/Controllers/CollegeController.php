@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\College;
+use App\Models\Course;
 
 class CollegeController extends Controller
 {
@@ -46,9 +47,10 @@ class CollegeController extends Controller
      */
     public function show($country_slug,$slug)
     {
+        $courses = Course::where('college_slug', $slug)->get();
         $college = College::where('slug', $slug)->first();
         $colleges = College::where('country_slug',$country_slug)->get();
-        return view('single_college')->with(['college' => $college, 'colleges' => $colleges]);
+        return view('single_college')->with(['college' => $college, 'colleges' => $colleges,'courses' => $courses ]);
     }
 
     /**

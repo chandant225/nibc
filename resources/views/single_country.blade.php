@@ -133,11 +133,11 @@
             <h4 class="text-gray-600">Academics degrees avaliable in this country</h4>
               <div class="grid grid-cols-3 gap-4 mt-4">
                 @foreach($degrees as $degree)
-                <div class="shadow-lg rounded">
+                <div class="shadow rounded-lg py-4 border-2">
                   <div class="p-1 text-center">
                     <h5 style="">{{$degree->title}}</h5>
                   </div>
-                  <a style="" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="background-color:#007bc5" class="text-gray-100 px-3 rounded py-2">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
+                  <a style="text-decoration:none" class="flex justify-center items-center" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="" class="academic-btn text-gray-100 px-3 rounded py-2">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
                 </div>
                 @endforeach
               </div>
@@ -190,7 +190,7 @@
                  <textarea type="text" required placeholder="message"></textarea>
                 </label>
 
-                <button class="btn btn-base mx-auto d-block">Submit</button>
+                <button class="btn btn-dark mx-auto d-block w-full">Submit</button>
               </form>
             </div>
           </div>

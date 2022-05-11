@@ -2076,6 +2076,10 @@ ul {
 }
 .navbar-area-2 .nav-container .navbar-collapse .navbar-nav > li > a {
     color: #fff;
+    text-decoration: none;
+}
+.navbar-area-2 .nav-container .navbar-collapse .navbar-nav > li > a:hover {
+    text-decoration: underline;
 }
 .navbar-area-2
     .nav-container
@@ -4432,4 +4436,104 @@ a:hover {
     to {
         transform: scale(1.5);
     }
+}
+
+.index-button {
+    background-color: #007bc5;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 4px;
+    transition: all 0.5;
+}
+
+.index-button:hover {
+    transition: all 0.5;
+    background-color: #13608f;
+}
+
+.card-title {
+    text-decoration: none;
+    color: #007bc5;
+}
+.readmore-text {
+    text-decoration: none;
+    color: #007bc5;
+}
+.readmore-text:hover {
+    text-decoration: none;
+    color: #007bc5;
+}
+.form-btn {
+    background-color: #d96030;
+    color: white;
+    width: 100%;
+    padding: 16px 0px;
+    border-radius: 4px;
+    transition: all 0.5;
+}
+.form-btn:hover {
+    transition: all 0.5;
+    background-color: #b64f26;
+}
+.footer-call-to-action .footer-btn {
+    background-color: #080808;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 4px;
+    margin-top: 14px;
+    transition: all 0.5;
+}
+.footer-call-to-action .footer-btn:hover {
+    background-color: #1a1919;
+    transition: all 0.5;
+}
+
+.footer-call-to-action .social-media-2 li a {
+    text-decoration: none;
+    color: #007bc5;
+}
+
+.academic-btn {
+    background-color: #007bc5;
+}
+.academic-btn:hover {
+    background-color: #0c5583;
+}
+
+.avaliable-course-btn {
+    background-color: #007bc5;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    margin-top: 14px;
+    transition: all 0.5;
+    text-decoration: none;
+}
+
+.avaliable-course-btn:hover {
+    background-color: #1b74ac;
+    color: white;
+    text-decoration: none;
+    transition: all 0.5;
+}
+
+.course_degree {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1b74ac;
+    color: white;
+    padding: 12px 24px;
+}
+
+.avaliable-college {
+    background-color: #1b74ac;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: all 0.5;
+}
+.avaliable-college:hover {
+    background-color: #156292;
+    transition: all 0.5;
 }

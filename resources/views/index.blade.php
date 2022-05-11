@@ -36,7 +36,7 @@
                 <h2 class="title">Explore Our Destinations</h2>
               </div>
               <div class="col-lg-4 text-lg-right">
-                <a style="padding-top: 12px;" class="btn btn-border-black" href="#">All Countries</a>
+                <a href="{{route('country.index')}}"><button class="index-button">All Countries</button></a>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
                 @foreach($countries as $country)
                 <div class="swiper-slide">
                   <div class="item">
-                    <div class="single-course-inner">
+                    <div class="single-course-inner shadow">
                       <div class="thumb">
                         <img
                          src="/storage/{{$country->image}}"
@@ -61,10 +61,10 @@
                       <div class="details">
                         <div class="details-inner">
                           <h4>
-                            <a href="{{route('country.show',['slug'=> $country->slug])}}">{{ $country->title}}</a>
+                            <a class="card-title" href="{{route('country.show',['slug'=> $country->slug])}}">{{ $country->title}}</a>
                           </h4>
                           <p>
-                            {!! Str::words( $country->overview, 30, ' ...') !!}
+                            {!! Str::words( $country->short_description, 15, ' ...') !!}
                           </p> 
                         </div>
                         <div class="bottom-area">
@@ -129,9 +129,6 @@
                   destination, we will help your dream come true.
                 </p>
               </div>
-              <!-- <div class="countdown-inner text-center">
-                <div class="countdown"></div>
-              </div> -->
             </div>
             <div class="col-lg-5 offset-xl-1">
               <div class="fill-up-form-inner mt-3 mt-lg-0">
@@ -149,7 +146,7 @@
                   <label class="single-input-inner style-bg">
                     <textarea placeholder="Message"></textarea>
                   </label>
-                  <button class="btn btn-red w-100">Send Message</button>
+                  <button class="form-btn">Send Message</button>
                 </div>
               </div>
             </div>
@@ -167,7 +164,7 @@
                 <h2 class="title">Top Faculties</h2>
               </div>
               <div class="col-lg-4 text-lg-right">
-                <a style="padding-top: 12px;" class="btn btn-border-black" href="#">All Faculties</a>
+                <a href="{{route('course.index')}}"><button class="index-button">All Faculties</button></a>
               </div>
             </div>
           </div>
@@ -181,15 +178,15 @@
               @foreach($courses as $course)
                 <div class="swiper-slide">
                   <div class="item">
-                    <div class="single-course-inner">
+                    <div class="single-course-inner shadow">
                       <div class="thumb">
                         <img  class="h-60" src="/storage/{{$course->image}}" alt="img" />
                       </div>
                       <div class="details">
                         <div class="details-inner">
-                          <h5 class="mb-md-3 mb-sm-2">
-                            <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
-                          </h5>
+                          <h4 class="mb-md-3 mb-sm-2">
+                            <a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
+                          </h4>
                           <div class="cat-area">
                             <?php
                              $avaliableCountry = explode(',',$course->avaliable_in_country);
@@ -372,22 +369,24 @@
             <div class="swiper-wrapper">
               @foreach($blogs as $blog)
               <div class="swiper-slide">
-                <div class="single-blog-inner shadow-lg rounded">
+                <div class="single-blog-inner rounded shadow">
                   <div class="thumb">
                     <a href="{{route('blog.show',['slug' => $blog->slug])}}">
                       <img  class="h-60 w-full" src="/storage/{{$blog->image}}" alt="img" />
                     </a>
                   </div>
-                  <div class="details p-2">
+                  <div class="details p-4">
                     <div class="blog-meta">
                       <ul class="flex flex-row justify-between items-center">
-                        <li class="comnt bg-base">{{$blog->category_slug}}</li>
+                        <li class="comnt bg-base cursor-pointer">{{$blog->category_slug}}</li>
                         <li class="author">By <span>Admin</span></li>
                       </ul>
                       <p class="mt-3">{{$blog->created_at}}</p>
                     </div>
-                    <h4><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h4>
+                    <h5><a class="card-title" href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
+                    <div class="align-self-center text-right">
                     <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More >></a>
+                    </div>
                   </div>
                 </div>
               </div>
