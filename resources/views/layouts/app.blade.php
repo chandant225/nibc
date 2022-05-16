@@ -72,8 +72,10 @@ $(document).ready(function() {
         <script>
           window.fbAsyncInit = function() {
             FB.init({
+              appId    : '389362481136467',
+              autoLogAppEvents : true,
               xfbml            : true,
-              version          : 'API-VERSION'
+              version          : 'v13.0'
             });
           };
     
