@@ -52,7 +52,22 @@ $(document).ready(function() {
         <div>
             @include('layouts.footer')
         </div>
+
+            <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
     </div>
+    </div>
+
+
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "389362481136467");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript" src={{ asset('js/app.js') }}></script>
     <script type="text/javascript" src={{ asset('js/counter.js') }}></script>
