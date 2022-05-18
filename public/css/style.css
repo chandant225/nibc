@@ -502,6 +502,9 @@ ul {
 /*---------------------------------------
     ## Button
 ---------------------------------------*/
+button {
+    border:none;
+}
 .btn {
     height: 50px;
     line-height: 50px;
@@ -4123,7 +4126,7 @@ button.right-side-btn {
 .page-title-area .page-list li a:after {
     position: absolute;
     right: 0;
-    top: 12px;
+    top: 0px;
     content: "/";
     height: 15px;
     width: 1px;
