@@ -154,7 +154,7 @@
             <div class="swiper-slide">
               <div class="item">
                 <div class="single-course-inner shadow">
-                  <div class="thumb">
+                 <div class="thumb">
                     <img
                      src="/storage/{{$country->image}}"
                       alt="img"
@@ -203,6 +203,7 @@
                   </div>
                 </div>
               </div>
+         
             </div>
             @endforeach
         </div>

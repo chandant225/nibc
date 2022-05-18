@@ -52,11 +52,13 @@
                   <div class="item">
                     <div class="single-course-inner shadow">
                       <div class="thumb">
+                        <a href="{{route('country.show',['slug'=> $country->slug])}}">
                         <img
                          src="/storage/{{$country->image}}"
                           alt="img"
-                          class="h-60"
+                          class="card-image"
                         />
+                        </a>
                       </div>
                       <div class="details">
                         <div class="details-inner">
@@ -95,7 +97,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More >></a>
+                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>
@@ -180,7 +182,7 @@
                   <div class="item">
                     <div class="single-course-inner shadow">
                       <div class="thumb">
-                        <img  class="h-60" src="/storage/{{$course->image}}" alt="img" />
+                       <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img class="card-image" src="/storage/{{$course->image}}" alt="img" /></a>
                       </div>
                       <div class="details">
                         <div class="details-inner">
@@ -224,7 +226,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More >></a>
+                              <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>
@@ -372,7 +374,7 @@
                 <div class="single-blog-inner rounded shadow">
                   <div class="thumb">
                     <a href="{{route('blog.show',['slug' => $blog->slug])}}">
-                      <img  class="h-60 w-full" src="/storage/{{$blog->image}}" alt="img" />
+                      <img class="card-image" src="/storage/{{$blog->image}}" alt="img" />
                     </a>
                   </div>
                   <div class="details p-4">
@@ -385,7 +387,7 @@
                     </div>
                     <h5><a class="card-title" href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
                     <div class="align-self-center text-right">
-                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More >></a>
+                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
                     </div>
                   </div>
                 </div>
