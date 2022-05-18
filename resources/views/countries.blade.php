@@ -23,23 +23,26 @@
   
   @include('layouts.search_form')
 
-  <section class="container">
+  <section class="container ">
     @if($countries->IsEmpty())
     <center>
-        <p class="text-red-600 text-2xl font-bold">There are no any countries available</p>
+        <p class="text-danger">There are no any countries available</p>
     </center>
    
         @elseif($countries->IsNotEmpty())
-        <div class="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 my-10">
-      
+        <div class="row mt-4">
            @foreach($countries as $country)
-           <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="/storage/{{$country->image}}" alt="{{$country->title}}" />
+           <div class="col-lg-4 col-md-6 col-12 course-area">
+            <div class="item">
+           <div class="single-course-inner shadow">
+            <div class="thumb">
+              <a href="{{route('country.show',['slug'=> $country->slug])}}">
+            <img class="card-image" src="/storage/{{$country->image}}" alt="{{$country->title}}" /></a>
+          </div>
             <div class="p-3">
-                
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                 {{$country->title}}
-                </h3>
+                <h4 class="mb-md-3 mb-sm-2"><a href="{{route('country.show',['slug'=> $country->slug])}}" class="card-title">
+                 {{$country->title}}</a>
+                </h4>
               <div class="flex flex-row justify-between items-center">
                 <div class="rating-inner">
                     @if($country->rating === 1)
@@ -64,12 +67,15 @@
                     <i class="fa fa-star"></i>
                     @endif
                   </div>
-                   <a class="mt-3 block" href="{{route('country.show',['slug'=> $country->slug])}}">Read More >></a>
+                  <div class="text-right">
+                   <a class="readmore-text border-btn" href="{{route('country.show',['slug'=> $country->slug])}}">Read More</a>
               </div>
+            </div>
               
             </div>
         </div>
-
+            </div>
+      </div>
            @endforeach
 
         @endif

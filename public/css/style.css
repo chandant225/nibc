@@ -4496,13 +4496,6 @@ a:hover {
     color: #007bc5;
 }
 
-.academic-btn {
-    background-color: #007bc5;
-}
-.academic-btn:hover {
-    background-color: #0c5583;
-}
-
 .avaliable-course-btn {
     background-color: #007bc5;
     color: white;
@@ -4532,7 +4525,7 @@ a:hover {
 .avaliable-college {
     background-color: #1b74ac;
     color: white;
-    padding: 8px 16px;
+    padding: 4px 12px;
     border-radius: 3px;
     transition: all 0.5;
 }
@@ -4544,4 +4537,41 @@ a:hover {
 .card-image {
     width: 100%;
     height: 40vh;
+}
+
+.border-btn {
+    border: 1px solid #1b74ac;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.5;
+}
+
+.border-btn:hover {
+    transition: all 0.5;
+    background-color: #1b74ac;
+    color: #fff;
+}
+
+.degree-box {
+    width: 30%;
+    margin: 18px 20px 0px 0px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.academic-btn {
+    background-color: #007bc5;
+    border-radius: 5px;
+    color: #fff;
+    padding: 4px 8px;
+}
+.academic-btn:hover {
+    background-color: #0c5583;
+}
+
+.modal-content {
+    width: 40rem;
+    height: 90vh;
+    right: 5rem;
 }

@@ -71,14 +71,14 @@
                                 @foreach($sidebar_blogs as $blog)
                                 <li>
                                     <div class="media">
-                                        <div class="media-left">
+                                        <div style="width:50%" class="media-left">
                                             <a href="{{route('blog.show',['slug' => $blog->slug])}}">
-                                                <img class="w-24 h-24" src="/storage/{{$blog->image}}" alt="blog">
+                                                <img class="w-75 h-75" src="/storage/{{$blog->image}}" alt="blog">
                                             </a>
                                         </div>
                                         <div class="media-body align-self-center">
                                             <h5 class="title"><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
-                                            <div class="post-info"><i class="fa fa-calendar-times-o"></i>{{$blog->created_at}}</div>                             
+                                            <div class="post-info"><i class="fa fa-calendar-times-o"></i>{{$blog->created_at->toDateString()}}</div>                             
                                         </div>
                                     </div>
                                 </li>
@@ -92,19 +92,6 @@
                                 <li><a href="{{route('filtered_blogs',['slug' => $category->slug])}}"><i class="fa fa-angle-right"></i>{{$category->title}}</a></li>
                                 @endforeach
                             </ul>
-                        </div>
-                        <div class="widget widget_tags">
-                            <h4 class="widget-title">Tags</h4>
-                            <div class="tagcloud">
-                                <a href="blog.html">Art</a>
-                                <a href="blog.html">Creative</a>
-                                <a href="blog.html">Article</a>
-                                <a href="blog.html">Designer</a>
-                                <a href="blog.html">Landing</a>
-                            </div>
-                        </div>
-                        <div class="widget widget_add mb-0">
-                            <a href="#"><img src="/assets/img/other/6.png" alt="img"></a>
                         </div>
                     </div>
                 </div>

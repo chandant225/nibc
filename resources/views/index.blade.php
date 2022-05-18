@@ -338,6 +338,7 @@
                   class="col-xl-4 col-lg-2 mt-5 mt-lg-0 text-center align-self-center"
                 >
                   <a
+                  data-bs-toggle="modal" data-bs-target="#videoModal"
                     class="video-play-btn"
                     href="https://www.youtube.com/embed/Wimkqo8gDZ0"
                     data-effect="mfp-zoom-in"
@@ -350,6 +351,21 @@
         </div>
       </div>
       <!-- video area end -->
+
+      <!-- Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
       <!--blog-area start-->
       <div class="blog-area pd-top-115 mb-5 pb-3">
@@ -383,7 +399,7 @@
                         <li class="comnt bg-base cursor-pointer">{{$blog->category_slug}}</li>
                         <li class="author">By <span>Admin</span></li>
                       </ul>
-                      <p class="mt-3">{{$blog->created_at}}</p>
+                      <p class="mt-3">{{$blog->created_at->toDateString()}}</p>
                     </div>
                     <h5><a class="card-title" href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
                     <div class="align-self-center text-right">

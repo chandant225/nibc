@@ -23,27 +23,36 @@
 </div>
 <!-- page title end -->
     @if($search_results->IsEmpty())
-        <div class="text-center shadow-xl w-1/2 p-4 mx-auto mt-4 mb-4 rounded">
+        <div class="">
           <center class="py-6">
-            <i id="error_icon" class="fas fa-exclamation-triangle text-4xl text-red-600"></i>
+            <i id="error_icon" class="fas fa-exclamation-triangle"></i>
           </center>
-          <p class="text-red-600 text-xl">Sorry, we couldn't find the search result.</p>
-          <div class="flex justify-end">
-            <a class="" href="/"><button class="bg-red-600 text-gray-100 px-3  rounded pt-2 pb-2 hover:bg-red-500">Go back >></button></a>
+          <p class="">Sorry, we couldn't find the search result.</p>
+          <div class="">
+            <a class="" href="/"><button class="">Go back >></button></a>
           </div>
         </div>
     @elseif($search_results->IsNotEmpty())
-    <div class="container mx-auto py-10">
+    <div class="container">
       <center>
-        <p class="text-gray-600 text-2xl font-bold">Results found...</p>
+        <p class="fs-3 mt-4">Results found...</p>
       </center>
-    <div class="grid grid-cols-3 gap-4 mt-4">
+    <div class="row">
        @foreach($search_results as $college)
-        <div class="shadow-xl rounded-xl"> 
-            <img src="/storage/{{$college->image}}" class="object-cover rounded-t-xl" alt="" />
-            <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><p class="text-lg text-gray-600 font-semibold mt-3 px-2">{{$college->title}}</p></a>
-            <div class="flex justify-end p-4"><a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><button class="bg-blue-600 text-gray-100 px-3   rounded pt-3 pb-2 hover:bg-blue-500">View More >></button></a></div>
+       <div class="col-lg-4 col-md-6 col-12 course-area">
+        <div class="item">
+       <div class="single-course-inner shadow">
+        <div class="thumb"> 
+          <a  href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"> <img src="/storage/{{$college->image}}" class="card-image" alt="{{$college->title}}" /></a>
+        </div>
+            <h5 class="ps-3 py-3"><a class="card-title" href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h5>
+            <div class="text-right p-4">
+              <a class="readmore-text border-btn" href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">View More</a>
+            </div>
         </div>     
+      </div>  
+    </div>  
+  </div>  
        @endforeach
        
     </div>

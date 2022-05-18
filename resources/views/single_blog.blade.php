@@ -50,7 +50,7 @@
                         <div>
                             {!! $blog->description !!}
                         </div>
-                        <div class="tag-and-sharea-area">
+                        {{-- <div class="tag-and-sharea-area">
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
                                     <div class="tags">
@@ -77,7 +77,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="section-title style-small mb-4 mt-5">
@@ -90,17 +90,17 @@
                         <div>
                           <div class="flex flex-row gap-4">
                               <div class="w-20">
-                                      <p style="width: 4rem;
-                                      background: slategray;
-                                      padding: 15px 0px 10px 20px;
+                                      <p style="width: 3rem;
+                                      background: #3d91e5;
+                                      padding: 6px 0px 10px 18px;
                                       border-radius: 50%;
                                       color: wheat;
-                                      font-size: 30px;
+                                      font-size: 20px;
                                       font-weight: bolder;">{!! Str::limit($comment->name, 1) !!}</p>
                               </div>
                               <div class="">
                                  <p>Commented by: {{$comment->name}}<span class="ml-4">Email: {{$comment->email}}</span></p>
-                                 <p>Commented on: {{$comment->created_at}}</p>
+                                 <p>Commented on: {{$comment->created_at->toDateString()}}</p>
                                  <p>{{$comment->message}}</p>
                               </div>
                           </div>
@@ -160,14 +160,14 @@
                                @foreach($sidebar_blogs as $blog)
                                <li>
                                 <div class="media">
-                                    <div class="media-left">
+                                    <div style="width: 50%;" class="media-left">
                                         <a href="{{route('blog.show',['slug' => $blog->slug])}}">
-                                            <img class="w-28 object-cover h-24" src="/storage/{{$blog->image}}" alt="blog">
+                                            <img class="w-75 h-75" src="/storage/{{$blog->image}}" alt="blog">
                                         </a>
                                     </div>
                                     <div class="media-body align-self-center">
                                         <h5 class="title"><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
-                                        <div class="post-info"><i class="fa fa-calendar-times-o"></i>{{$blog->created_at}}</div>                             
+                                        <div class="post-info"><i class="fa fa-calendar-times-o"></i>{{$blog->created_at->toDateString()}}</div>                             
                                     </div>
                                 </div>
                             </li>
@@ -181,19 +181,6 @@
                                 <li><a href="{{route('filtered_blogs',['slug' => $category->slug])}}"><i class="fa fa-angle-right"></i>{{$category->title}}</a></li>
                                 @endforeach
                             </ul>
-                        </div>
-                        <div class="widget widget_tags">
-                            <h4 class="widget-title">Tags</h4>
-                            <div class="tagcloud">
-                                <a href="blog.html">Art</a>
-                                <a href="blog.html">Creative</a>
-                                <a href="blog.html">Article</a>
-                                <a href="blog.html">Designer</a>
-                                <a href="blog.html">Landing</a>
-                            </div>
-                        </div>
-                        <div class="widget widget_add mb-0">
-                            <a href="#"><img src="/assets/img/other/6.png" alt="img"></a>
                         </div>
                     </div>
                 </div>

@@ -75,9 +75,9 @@
                                 @foreach($sidebar_blogs as $blog)
                                 <li>
                                     <div class="media">
-                                        <div class="media-left">
+                                        <div style="width:50%;" class="media-left">
                                             <a href="{{route('blog.show',['slug' => $blog->slug])}}">
-                                                <img src="/storage/{{$blog->image}}" alt="blog">
+                                                <img class="w-75 h-75" src="/storage/{{$blog->image}}" alt="blog">
                                             </a>
                                         </div>
                                         <div class="media-body align-self-center">
@@ -98,22 +98,9 @@
                             @endif                                 
                             <ul class="catagory-items">
                                 @foreach($categories as $category)
-                                <li><a href=""><i class="fa fa-angle-right"></i>{{$category->title}}</a></li>
+                                <li><a href="{{route('filtered_blogs',['slug' => $category->slug])}}"><i class="fa fa-angle-right"></i>{{$category->title}}</a></li>
                                 @endforeach
                             </ul>
-                        </div>
-                        <div class="widget widget_tags">
-                            <h4 class="widget-title">Tags</h4>
-                            <div class="tagcloud">
-                                <a href="blog.html">Art</a>
-                                <a href="blog.html">Creative</a>
-                                <a href="blog.html">Article</a>
-                                <a href="blog.html">Designer</a>
-                                <a href="blog.html">Landing</a>
-                            </div>
-                        </div>
-                        <div class="widget widget_add mb-0">
-                            <a href="#"><img src="assets/img/other/6.png" alt="img"></a>
                         </div>
                     </div>
                 </div>
