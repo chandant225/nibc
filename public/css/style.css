@@ -4546,3 +4546,7 @@ a:hover {
 .navbar-nav li a {
     text-underline-offset: 5px;
 }
+
+.swiper .details.course-card {
+    height: 14rem;
+}
