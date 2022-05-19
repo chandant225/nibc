@@ -66,7 +66,7 @@
                             <a class="card-title" href="{{route('country.show',['slug'=> $country->slug])}}">{{ $country->title}}</a>
                           </h4>
                           <p>
-                            {!! Str::words( $country->short_description, 15, ' ...') !!}
+                            {!! Str::limit( $country->short_description, 80, ' ...') !!}
                           </p> 
                         </div>
                         <div class="bottom-area">
@@ -97,7 +97,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More</a>
+                              <a class="readmore-text border-btn"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>
@@ -226,7 +226,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                              <a class="readmore-text border-btn"  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>
@@ -403,7 +403,7 @@
                     </div>
                     <h5><a class="card-title" href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
                     <div class="align-self-center text-right">
-                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
+                    <a class="readmore-text border-btn" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
                     </div>
                   </div>
                 </div>

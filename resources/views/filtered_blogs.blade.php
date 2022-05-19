@@ -41,12 +41,12 @@
                                 <ul>
                                     <li class="comnt bg-base">{{$blog->category_slug}}</li>
                                     <li class="author">By <span>admin</span></li>
-                                    <li class="date">{{$blog->created_at}}</li>
+                                    <li class="date">{{$blog->created_at->toDateString()}}</li>
                                 </ul>
                             </div>
                             <h4><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h4>
                             <p>  {!! Str::words( $blog->description , 35, ' ...') !!}</p>
-                         
+                             <a href="#"></a>
                             <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
                         </div>
                     </div>
@@ -57,14 +57,14 @@
                 <!-- sidebar -->
                 <div class="col-lg-4 col-12">
                     <div class="td-sidebar">
-                        <div class="widget widget_search">
+                        {{-- <div class="widget widget_search">
                             <form class="search-form">
                                 <div class="form-group">
                                     <input type="text" placeholder="Search">
                                 </div>
                                 <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>                  
+                        </div>                   --}}
                         <div class="widget widget-recent-post">                            
                             <h4 class="widget-title">Recent Post</h4>
                             <ul>

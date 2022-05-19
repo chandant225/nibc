@@ -56,6 +56,12 @@ class FeeStructureController extends Controller
         ->where('college_slug',"=",$college_slug)
         ->where('course_slug',"=", $course_slug)
         ->where('academic_degree_slug',"=", $degree_slug)->first();
+         
+        $data = 'Fee structure is not available for this college.';
+        if(!$fee_structure){
+            return view('fee_structure')
+            ->with(['response_data' => $data,'countries'=>$countries, 'courses' => $courses]);
+        }
         return view('fee_structure')
         ->with(['fee_structure'=>$fee_structure,'countries'=>$countries, 'courses' => $courses]);
     }

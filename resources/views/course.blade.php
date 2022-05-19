@@ -30,7 +30,7 @@
             <p class="text-4xl pt-10 text-red-600 font-semibold">There are no any courses available yet</p>
           </center>
       @elseif(count($page_courses) >= 1)
-      <div class="row justify-content-center">
+      <div class="row">
         @foreach($page_courses as $course)
         <div class="col-lg-4 col-md-6">
             <div class="item">
@@ -80,7 +80,7 @@
                     </div>
                   </div>
                   <div class="col-6 align-self-center text-right">
-                    <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                    <a class="readmore-text border-btn" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                   </div>
                 </div>
               </div>

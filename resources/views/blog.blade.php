@@ -46,7 +46,7 @@
                             </div>
                             <h4><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h4>
                             <p>  {!! Str::words( $blog->description , 35, ' ...') !!}</p>
-                         
+                            <a href="#"></a>                       
                             <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">View More</a>
                         </div>
                     </div>
@@ -56,14 +56,14 @@
                 <!-- sidebar -->
                 <div class="col-lg-4 col-12">
                     <div class="td-sidebar">
-                        <div class="widget widget_search">
+                        {{-- <div class="widget widget_search">
                             <form class="search-form">
                                 <div class="form-group">
                                     <input type="text" placeholder="Search">
                                 </div>
                                 <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>                  
+                        </div>                   --}}
                         <div class="widget widget-recent-post">                            
                             <h4 class="widget-title">Recent Post</h4>
                             @if(count($sidebar_blogs) === 0)
@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="media-body align-self-center">
                                             <h5 class="title"><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
-                                            <div class="post-info"><i class="fa fa-calendar-times-o"></i>{{$blog->created_at}}</div>                             
+                                            <div class="post-info"><i class="fa fa-calendar-times-o"></i>{{$blog->created_at->toDateString()}}</div>                             
                                         </div>
                                     </div>
                                 </li>

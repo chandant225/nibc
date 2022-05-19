@@ -40,7 +40,7 @@
                                 <ul>
                                     <li class="comnt bg-base">{{$blog->category_slug}}</li>
                                     <li class="author">By <span>Admin</span></li>
-                                    <li class="date">{{$blog->created_at}}</li>
+                                    <li class="date">{{$blog->created_at->toDateString()}}</li>
                                 </ul>
                             </div>
                             <h4 class="mb-0">{{$blog->title}}</h4>
@@ -146,14 +146,14 @@
                 <!-- sidebar -->
                 <div class="col-lg-4 col-12">
                     <div class="td-sidebar">
-                        <div class="widget widget_search">
+                        {{-- <div class="widget widget_search">
                             <form class="search-form">
                                 <div class="form-group">
                                     <input type="text" placeholder="Search">
                                 </div>
                                 <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>                   
+                        </div>                    --}}
                         <div class="widget widget-recent-post">                            
                             <h4 class="widget-title">Recent Post</h4>
                             <ul>
