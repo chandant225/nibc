@@ -180,7 +180,7 @@
               @foreach($courses as $course)
                 <div class="swiper-slide">
                   <div class="item">
-                    <div class="single-course-inner shadow">
+                    <div style="height:70vh" class="single-course-inner shadow">
                       <div class="thumb">
                        <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img class="card-image" src="/storage/{{$course->image}}" alt="img" /></a>
                       </div>
