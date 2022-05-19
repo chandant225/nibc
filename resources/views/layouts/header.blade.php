@@ -23,24 +23,24 @@
         <div class="collapse navbar-collapse" id="nibc_main_menu">
           <ul class="navbar-nav text-right menu-open">
             <li class="current-menu-item">
-              <a style="font-size:{{Route::currentRouteName() === 'home' ? '20px' : '16px'}}" href="{{route('home')}}">Home</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'home' ? 'underline' : 'none'}}" href="{{route('home')}}">Home</a>
             </li>
             <li>
-              <a style="font-size:{{Route::currentRouteName() === 'about-us' ? '20px' : '16px'}}" href="{{route('about-us')}}">About Us</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'about-us' ? 'underline' : 'none'}}" href="{{route('about-us')}}">About Us</a>
             </li>
             <li>
-              <a style="font-size:{{Route::currentRouteName() === 'country.index' ? '20px' : '16px'}}" href="{{route('country.index')}}">Countries</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'country.index' ? 'underline' : 'none'}}" href="{{route('country.index')}}">Countries</a>
             </li>
             <li>
-              <a style="font-size:{{Route::currentRouteName() === 'course.index' ? '20px' : '16px'}}" href="{{route('course.index')}}">Courses</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'course.index' ? 'underline' : 'none'}}" href="{{route('course.index')}}">Courses</a>
             </li>
             <li>
-              <a style="font-size:{{Route::currentRouteName() === 'gallery' ? '20px' : '16px'}}" href="{{route('gallery')}}">Gallery</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'gallery' ? 'underline' : 'none'}}" href="{{route('gallery')}}">Gallery</a>
             </li>
             <li>
-              <a style="font-size:{{Route::currentRouteName() === 'blogs.index' ? '20px' : '16px'}}" href="{{route('blogs.index')}}">Blog</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'blogs.index' ? 'underline' : 'none'}}" href="{{route('blogs.index')}}">Blog</a>
             </li>
-            <li><a style="font-size:{{Route::currentRouteName() === 'contact-us' ? '20px' : '16px'}}" href="{{route('contact-us')}}">Contact Us</a></li>
+            <li><a style="text-decoration:{{Route::currentRouteName() === 'contact-us' ? 'underline' : 'none'}}" href="{{route('contact-us')}}">Contact Us</a></li>
           </ul>
         </div>
         <div class="nav-right-part nav-right-part-desktop style-white">
