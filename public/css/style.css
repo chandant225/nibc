@@ -4575,3 +4575,8 @@ a:hover {
     height: 90vh;
     right: 5rem;
 }
+
+/* 19 may */
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: 5px !important;
+}
