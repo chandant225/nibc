@@ -4580,3 +4580,6 @@ a:hover {
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
     margin-top: 5px !important;
 }
+.navbar-nav li a{
+    text-underline-offset: 5px;
+}
