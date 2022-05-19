@@ -81,7 +81,7 @@
               @foreach($colleges as $college)
               <li>
                 <div class="media">
-                  <div class="media-left">
+                  <div style="width:50%;" class="media-left">
                     <a href="{{route('course.show',['slug' => $college->slug,'country_slug' => $college->country_slug])}}">
                       <img src="/storage/{{$college->image}}" class="w-28 h-28 object-cover" alt="blog" />
                     </a>
@@ -91,7 +91,7 @@
                       <a  href="{{route('college_details',['country_slug' => $college->country_slug,'slug' => $college->slug])}}">{{$college->title}}</a>
                     </h5>
                     <div class="post-info">
-                      <i class="fa fa-calendar-times-o"></i>{{$college->created_at}}
+                      <i class="fa fa-calendar-times-o"></i>{{$college->created_at->toDateString()}}
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@
       <!-- /.sidebar -->
     </div>
     <div class="course-area pd-top-100">
-      <h4 class="mb-4">Available courses...</h4>
+      <h4 class="mb-4">Available courses</h4>
       <div class="container overflow-hidden">
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -135,16 +135,16 @@
               <div class="item">
                 <div class="single-course-inner shadow">
                   <div class="thumb relative">
-                    <img
+                    <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"><img
                      src="/storage/{{$course->image}}"
                       alt="img"
-                      class="h-60"
-                    />
+                      class="card-image"
+                    /></a>
                     <button class="course_degree">{{$course->degree_slug}}</button>
                   </div>
                   <div class="details">
                     <div class="details-inner">
-                        <a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{ $course->title}}</a>
+                        <h5><a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{ $course->title}}</a></h5>
                       <p>
                         {!! Str::words( $course->overview, 25, ' ...') !!}
                       </p>
@@ -177,7 +177,7 @@
                           </div>
                         </div>
                         <div class="col-6 align-self-center text-right">
-                          <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More >></a>
+                          <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                         </div>
                       </div>
                     </div>

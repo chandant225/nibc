@@ -33,13 +33,13 @@
             <div class="col-lg-8">
               @if($avaliable_courses->IsEmpty())
 
-              <section class='px-4 sm:px-6 lg:px-8'>
-                <div class="p-4 sm:p-14 bg-gray-100 rounded-2xl shadow border-2 font-mulish md:min-w-[692px]">
+              <section class='px-4'>
+                <div class="p-4">
                   <center class="py-6">
-                    <i id="error_icon" class="fas fa-exclamation-triangle text-4xl text-red-600"></i>
+                    <i id="error_icon" class="fas fa-exclamation-triangle text-danger"></i>
                   </center>
-                  <h4 class="py-2 text-red-600 font-bold">{{'Sorry, No courses are avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}.</h4>
-                  <div class="flex justify-end">
+                  <h4 class="py-2">{{'Sorry, No courses are avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug . "."}}</h4>
+                  <div class="d-flex justify-content-end">
                     <a class="avaliable-course-btn" href="{{url()->previous()}}">
                       << Go back
                    </a>
@@ -47,15 +47,21 @@
                 </div> 
               </section>
               @elseif($avaliable_courses->IsNotEmpty())
-              <h4 class="py-2">{{'List of courses avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}</h4>
-              <div class="grid grid-cols-2 gap-6">
+              <h5 class="py-2">{{'List of courses avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}</h5>
+              <div class="row">
               @foreach ($avaliable_courses as $course)
-                <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-                     <img class="object-cover h-52 w-full rounded-t" src="/storage/{{$course->image}}" alt={{$course->title}} />
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="item">
+                    <div class="single-course-inner shadow-sm">
+                      <div class="thumb">
+                      <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"><img 
+                        class="card-image"
+                        src="/storage/{{$course->image}}" alt={{$course->title}} /></a>
+                      </div>
                      <div class="p-3">
-                     <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                      {{$course->title}}
-                     </h3>
+                     <h4><a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}" class="card-title">
+                      {{$course->title}}</a>
+                     </h4>
                    <div class="flex flex-row justify-between items-center">
                      <div class="rating-inner">
                          @if($course->rating === 1)
@@ -80,10 +86,14 @@
                          <i class="fa fa-star"></i>
                          @endif
                        </div>
-                        <a class="mt-3 block" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More >></a>
+                       <div class="text-right">
+                        <a class="readmore-text border-btn"  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                      </div>
                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
                 @endforeach
               </div>
               @endif

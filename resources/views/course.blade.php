@@ -33,14 +33,15 @@
       <div class="row justify-content-center">
         @foreach($page_courses as $course)
         <div class="col-lg-4 col-md-6">
+            <div class="item">
           <div class="single-course-inner">
             <div class="thumb">
-              <img class="h-60" src="/storage/{{$course->image}}" alt="img" />
+              <img  class="card-image" src="/storage/{{$course->image}}" alt="img" />
             </div>
             <div class="details">
               <div class="details-inner">
                 <h5 class="mb-md-3 mb-sm-2">
-                  <a href="#">{{$course->title}}</a>
+                  <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
                 </h5>
                 <div class="cat-area">
                   <?php
@@ -85,6 +86,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
         @endforeach
         

@@ -130,14 +130,14 @@
               role="tabpanel"
               aria-labelledby="tab4-tab"
             >
-            <h4 class="text-gray-600">Academics degrees avaliable in this country</h4>
-              <div class="grid grid-cols-3 gap-4 mt-4">
+            <h4 class="">Academics degrees avaliable in this country</h4>
+              <div class="row">
                 @foreach($degrees as $degree)
-                <div class="shadow rounded-lg py-4 border-2">
-                  <div class="p-1 text-center">
+                <div class="col-lg-4 col-md-6 col-sm-12 shadow degree-box">
+                  <div class="p-1">
                     <h5 style="">{{$degree->title}}</h5>
                   </div>
-                  <a style="text-decoration:none" class="flex justify-center items-center" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="" class="academic-btn text-gray-100 px-3 rounded py-2">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
+                  <a style="text-decoration:none" class="" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="" class="academic-btn">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
                 </div>
                 @endforeach
               </div>
@@ -155,16 +155,15 @@
                 @foreach($colleges as $college)
                 <li>
                   <div class="media">
-                    <div class="media-left">
-                        <img
+                    <div style="width:50%;" class="media-left">
+                        <a href="{{route('college_details',['country_slug' => $college->country_slug,'slug' => $college->slug])}}"><img
                           src="/storage/{{$college->image}}"
-                          width="80"
-                          height="80"
+                           class="w-75 h-75"
                           alt="blog"
-                        />
+                        /></a>
                     </div>
                     <div class="media-body align-self-center">
-                      <h5 class="title"><a href="">{{$college->title}}</a></h5>
+                      <h5 class="title"><a href="{{route('college_details',['country_slug' => $college->country_slug,'slug' => $college->slug])}}">{{$college->title}}</a></h5>
                     </div>
                   </div>
                 </li>

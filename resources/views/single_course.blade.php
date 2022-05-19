@@ -75,16 +75,22 @@
             </div>
             <div class="tab-pane fade" id="tab4" role="tabpanel"
             aria-labelledby="tab4-tab">
-            <div class="grid grid-cols-2 gap-4">
+            <div class="row">
               @foreach ($colleges as $college)
-              <div class="shadow rounded-lg overflow-hidden">
-                  <img src="/storage/{{$college->image}}" alt="{{$college->title}}" class="object-cover  w-full h-52" />
-                  <h5 class="card-title mt-4 px-3">{{$college->title}}</h5>
-                  <div class="flex flex-row gap-2 justify-between items-center py-3 px-3"> 
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="item">
+                  <div class="single-course-inner shadow">
+                    <div class="thumb">
+                      <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><img src="/storage/{{$college->image}}" alt="{{$college->title}}" class="card-image" /></a>
+                    </div>
+                  <h5 class="ms-4 mt-3"><a class="card-title" href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h5>
+                  <div class="d-flex flex-row justify-content-between px-4 py-3"> 
                      <a href="{{route('fees.show',['country_slug'=>$college->country_slug,'college_slug'=>$college->slug,'degree_slug'=>$course->degree_slug,'course_slug'=>$course->slug])}}"><button class="avaliable-college">view fees</button></a>
                      <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><button class="avaliable-college">view details</button></a>
                   </div>
               </div>
+            </div>
+          </div>
               @endforeach
             </div>
           </div>
@@ -101,9 +107,9 @@
               @foreach($courses as $course)
               <li>
                 <div class="media">
-                  <div class="media-left">
+                  <div style="width:50%;" class="media-left">
                     <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">
-                      <img src="/storage/{{$course->image}}" class="w-28 h-28 object-cover" alt="blog" />
+                      <img src="/storage/{{$course->image}}" class="w-75 h-100" alt="{{$course->title}}" />
                     </a>
                   </div>
                   <div class="media-body align-self-center">
@@ -111,7 +117,7 @@
                       <a  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
                     </h5>
                     <div class="post-info">
-                      <i class="fa fa-calendar-times-o"></i>{{$course->created_at}}
+                      <i class="fa fa-calendar-times-o"></i>{{$course->created_at->toDateString()}}
                     </div>
                   </div>
                 </div>
@@ -146,7 +152,7 @@
       <!-- /.sidebar -->
     </div>
     <div class="course-area pd-top-100">
-      <h4 class="mb-4">Course Available in</h4>
+      <h4 class="mb-4">Course available in</h4>
       <div class="container overflow-hidden">
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -154,16 +160,17 @@
             <div class="swiper-slide">
               <div class="item">
                 <div class="single-course-inner shadow">
-                  <div class="thumb">
+                 <div class="thumb">
+                  <a href="{{route('country.show',['slug'=> $country->slug])}}">
                     <img
                      src="/storage/{{$country->image}}"
                       alt="img"
-                      class="h-60"
-                    />
+                      class="card-image"
+                    /></a>
                   </div>
                   <div class="details">
                     <div class="details-inner">
-                        <a class="card-title" href="#">{{ $country->title}}</a>
+                       <h4> <a class="card-title" href="{{route('country.show',['slug'=> $country->slug])}}">{{ $country->title}}</a></h4>
                       <p>
                         {!! Str::words( $country->overview, 25, ' ...') !!}
                       </p>
@@ -196,13 +203,14 @@
                           </div>
                         </div>
                         <div class="col-6 align-self-center text-right">
-                          <a class="readmore-text" href="{{route('country.show',["slug" => $country->slug])}}">Read More >></a>
+                          <a class="readmore-text" href="{{route('country.show',["slug" => $country->slug])}}">Read More</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+         
             </div>
             @endforeach
         </div>

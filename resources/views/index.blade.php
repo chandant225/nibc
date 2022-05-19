@@ -52,11 +52,13 @@
                   <div class="item">
                     <div class="single-course-inner shadow">
                       <div class="thumb">
+                        <a href="{{route('country.show',['slug'=> $country->slug])}}">
                         <img
                          src="/storage/{{$country->image}}"
                           alt="img"
-                          class="h-60"
+                          class="card-image"
                         />
+                        </a>
                       </div>
                       <div class="details">
                         <div class="details-inner">
@@ -95,7 +97,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More >></a>
+                              <a class="readmore-text"  href="{{route('country.show',['slug'=> $country->slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>
@@ -180,7 +182,7 @@
                   <div class="item">
                     <div class="single-course-inner shadow">
                       <div class="thumb">
-                        <img  class="h-60" src="/storage/{{$course->image}}" alt="img" />
+                       <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img class="card-image" src="/storage/{{$course->image}}" alt="img" /></a>
                       </div>
                       <div class="details">
                         <div class="details-inner">
@@ -224,7 +226,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More >></a>
+                              <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>
@@ -336,6 +338,7 @@
                   class="col-xl-4 col-lg-2 mt-5 mt-lg-0 text-center align-self-center"
                 >
                   <a
+                  data-bs-toggle="modal" data-bs-target="#videoModal"
                     class="video-play-btn"
                     href="https://www.youtube.com/embed/Wimkqo8gDZ0"
                     data-effect="mfp-zoom-in"
@@ -348,6 +351,21 @@
         </div>
       </div>
       <!-- video area end -->
+
+      <!-- Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
       <!--blog-area start-->
       <div class="blog-area pd-top-115 mb-5 pb-3">
@@ -372,7 +390,7 @@
                 <div class="single-blog-inner rounded shadow">
                   <div class="thumb">
                     <a href="{{route('blog.show',['slug' => $blog->slug])}}">
-                      <img  class="h-60 w-full" src="/storage/{{$blog->image}}" alt="img" />
+                      <img class="card-image" src="/storage/{{$blog->image}}" alt="img" />
                     </a>
                   </div>
                   <div class="details p-4">
@@ -381,11 +399,11 @@
                         <li class="comnt bg-base cursor-pointer">{{$blog->category_slug}}</li>
                         <li class="author">By <span>Admin</span></li>
                       </ul>
-                      <p class="mt-3">{{$blog->created_at}}</p>
+                      <p class="mt-3">{{$blog->created_at->toDateString()}}</p>
                     </div>
                     <h5><a class="card-title" href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h5>
                     <div class="align-self-center text-right">
-                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More >></a>
+                    <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
                     </div>
                   </div>
                 </div>

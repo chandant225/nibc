@@ -9,7 +9,7 @@
                   <h3 class="title">
                     Our students have reached their DREAM CAREER through us.
                   </h3>
-                  <a href="#"><button class="footer-btn">Enroll Today</button></a>
+                  <a href="#"><button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="footer-btn">Enroll Today</button></a>
                 </div>
               </div>
               <div class="col-xl-5 col-lg-4 d-none d-lg-block">
@@ -91,6 +91,7 @@
             <div class="widget widget_nav_menu">
               <h4 class="widget-title">Facebook</h4>
             </div>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FOptiwise-Education-102543074673318%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           </div>
         </div>
       </div>

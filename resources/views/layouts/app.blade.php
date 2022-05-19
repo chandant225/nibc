@@ -63,6 +63,8 @@ $(document).ready(function() {
 
 
 
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="9GiTF5zr"></script>
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "389362481136467");
