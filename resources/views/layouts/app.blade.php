@@ -41,7 +41,7 @@ $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 </script>
-     @livewireStyles
+     @livewireStyles()
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
@@ -72,7 +72,7 @@ $(document).ready(function() {
 
 @stack('scripts')
 
-
+@livewireScripts()
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="9GiTF5zr"></script>
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
@@ -150,6 +150,6 @@ $(document).ready(function() {
 });
 </script>
 
-@livewireScripts
+
 </body>
 </html>
