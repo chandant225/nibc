@@ -4593,6 +4593,8 @@ a:hover {
 
 #instagram {
     top: 150px;
+    color: white;
+    background: #c258a0;
 }
 
 #linkedin {
@@ -4617,6 +4619,4 @@ a:hover {
 }
 
 .fa-instagram {
-    background: #c258a0;
-    color: white;
 }
