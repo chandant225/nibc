@@ -1,4 +1,10 @@
    <!-- navbar start -->
+      <div id="mySidenav" class="sidenav">
+         <a href="https://facebook.com" class="fa fa-facebook" id="facebook"></a>
+         <a href="https://twitter.com" class="fa fa-twitter" id="twitter"></a>
+         <a href="https://instagram.com" class="fa fa-instagram" id="instagram"></a>
+         <a href="https://linkedin.com" class="fa fa-linkedin"  id="linkedin"></a>
+        </div>
    <div class="">   
      <nav class="navbar navbar-area-2 navbar-area navbar-expand-lg">
       <div class="container nav-container">
