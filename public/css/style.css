@@ -4617,3 +4617,54 @@ a:hover {
     background: #007bb5;
     color: white;
 }
+
+.loadmore-btn {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 4px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px 0px 28px 0px;
+}
+
+.loadmore-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.loadmore-btn span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.loadmore-btn:hover span {
+    padding-right: 25px;
+}
+
+.loadmore-btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.tab-btn {
+    background-color: #1b74ac;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 5px;
+    transition: all 0.5;
+}
+.active {
+    background: white;
+    color: #1b74ac;
+    border: 1px solid;
+}
