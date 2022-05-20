@@ -41,7 +41,7 @@
               <a style="text-decoration:{{Route::currentRouteName() === 'course.index' ? 'underline' : 'none'}}" href="{{route('course.index')}}">Courses</a>
             </li>
             <li>
-              <a style="text-decoration:{{Route::currentRouteName() === 'gallery' ? 'underline' : 'none'}}" href="{{route('gallery')}}">Gallery</a>
+              <a style="text-decoration:{{Route::currentRouteName() === 'institution' ? 'underline' : 'none'}}" href="{{route('institution')}}">Institution</a>
             </li>
             <li>
               <a style="text-decoration:{{Route::currentRouteName() === 'blogs.index' ? 'underline' : 'none'}}" href="{{route('blogs.index')}}">Blog</a>

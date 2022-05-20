@@ -60,6 +60,8 @@ Route::post('/search_college',[PageController::class,'search_college'])->name('s
 
 Route::get('/college/{country_slug}/{slug}', [CollegeController::class,'show'])->name('college_details');
 
+Route::get('/institution', [PageController::class, 'institution'])->name('institution');
+
 
 
 

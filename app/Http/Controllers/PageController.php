@@ -66,7 +66,13 @@ class PageController extends Controller
         $result_search = College::where('country_slug',$country)->get();
         return view('search_page')->with(['search_results'=> $result_search]);
     }
-
- 
+    
+    public function institution() {
+        $countries = Country::orderBy('updated_at','DESC')->get();
+        $courses = Course::orderBy('updated_at','DESC')->get();
+        $colleges = College::orderBy('updated_at','DESC')->get();
+        return view('institution')
+         ->with(['countries' => $countries, 'courses' => $courses,'colleges' => $colleges]);
+    }
 
 }
