@@ -13,10 +13,10 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="breadcrumb-inner">
-            <h2 class="page-title">ccccccc</h2>
+            <h2 class="page-title">Institution</h2>
             <ul class="page-list">
               <li><a href="{{route('home')}}">Home</a></li>
-              <li>cccccccc</li>
+              <li>institution</li>
             </ul>
           </div>
         </div>
