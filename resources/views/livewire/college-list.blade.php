@@ -1,7 +1,7 @@
 <div>
       
     @foreach($countries as $country)
-     <button style="font-size: 20px;padding: 4px 24px;margin-left:5px;" wire:click="filtercollege('{{$country->slug}}')" class="tab-btn {{$active ==$country->slug ? 'activee' : ''}}">{{$country->title}}</button>
+     <button style="font-size: 20px;padding: 4px 24px;margin-left:5px;" wire:click="filtercollege('{{$country->slug}}')" class="tab-btn {{$active ==$country->slug ? 'activee' : ''}}"  data-bs-toggle="tooltip" data-bs-placement="top" title="{{'view colleges in' ." " . $country->slug}}">{{$country->title}}</button>
  
     @endforeach
          @if($filtered_colleges)

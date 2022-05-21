@@ -48,7 +48,7 @@
                     </div>
                     <div class="blog-content-inner">
                         <div>
-                            {!! $blog->description !!}
+                     {!! $blog->description !!}
                         </div>
                         {{-- <div class="tag-and-sharea-area">
                             <div class="row">
@@ -99,9 +99,9 @@
                                       font-weight: bolder;">{!! Str::limit($comment->name, 1) !!}</p>
                               </div>
                               <div class="">
-                                 <p>Commented by: {{$comment->name}}<span class="ml-4">Email: {{$comment->email}}</span></p>
-                                 <p>Commented on: {{$comment->created_at->toDateString()}}</p>
-                                 <p>{{$comment->message}}</p>
+                                 <p><i class="fa fa-user" aria-hidden="true"></i> {{$comment->name}}<span class="ml-4"><i class="fa fa-envelope" aria-hidden="true"></i> {{$comment->email}}</span></p>
+                                 <p><i class="fa fa-calendar" aria-hidden="true"></i> {{$comment->created_at->toDateString()}}</p>
+                                 <p>  <i class="far fa-hand-point-right me-2"></i>{{$comment->message}}</p>
                               </div>
                           </div>
                           <hr />

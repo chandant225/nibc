@@ -30,13 +30,13 @@
                     </center>
                     @endif
                     @foreach($blogs as $blog)
-                    <div class="single-blog-inner">
+                    <div class="single-blog-inner shadow rounded">
                         <div class="thumb">
                             <a href="{{route('blog.show',['slug' => $blog->slug])}}">
                                 <img src="/storage/{{$blog->image}}" alt="img">
                             </a>    
                         </div>
-                        <div class="details">
+                        <div class="details px-4 py-3 ">
                             <div class="blog-meta">
                                 <ul>
                                     <li class="comnt bg-base">{{$blog->category_slug}}</li>
@@ -45,12 +45,15 @@
                                 </ul>
                             </div>
                             <h4><a href="{{route('blog.show',['slug' => $blog->slug])}}">{{$blog->title}}</a></h4>
-                            <p>  {!! Str::words( $blog->description , 35, ' ...') !!}</p>
-                            <a href="#"></a>                       
-                            <a class="readmore-text" href="{{route('blog.show',['slug' => $blog->slug])}}">View More</a>
+                            <p>  {!! Str::words( $blog->description , 60, ' ...') !!}</p>
+                            <a href="#"></a>   
+                             <div class="text-right me-3">                    
+                            <a class="readmore-text border-btn" href="{{route('blog.show',['slug' => $blog->slug])}}">Read More</a>
+                             </div>
                         </div>
                     </div>
                     @endforeach
+                    
                      {{$blogs->links()}}
                 </div>
                 <!-- sidebar -->

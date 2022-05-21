@@ -42,6 +42,7 @@
                   aria-selected="false">
                   <i class="fa fa-file-text-o"></i>Procedure</a>
               </li>
+              <li>
               <a class="nav-link" id="tab3-tab" data-toggle="tab"
               href="#tab3" role="tab" aria-controls="tab3"
               aria-selected="false">
@@ -127,6 +128,9 @@
     </div>
     <div class="course-area pd-top-100">
       <h4 class="mb-4">Available courses</h4>
+      @if(count($courses) === 0)
+     <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i>There are no any courses available in this college for now.</p>
+      @endif
       <div class="container overflow-hidden">
       <div class="swiper">
         <div class="swiper-wrapper">
