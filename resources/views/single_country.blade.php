@@ -205,7 +205,7 @@
               <div class="item">
             <div class="single-course-inner">
               <div class="thumb">
-                <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img src="/storage/{{$course->image}}" alt="img" /></a>
+                <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img src="/storage/{{$course->image}}" class="card-image" alt="img" /></a>
               </div>
               <div class="details course-card">
                 <div class="details-inner">
