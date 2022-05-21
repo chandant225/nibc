@@ -202,11 +202,12 @@
           <div class="swiper-wrapper">
           @foreach($courses as $course)
           <div class="swiper-slide">
+              <div class="item">
             <div class="single-course-inner">
               <div class="thumb">
-                <img src="/storage/{{$course->image}}" alt="img" />
+                <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img src="/storage/{{$course->image}}" alt="img" /></a>
               </div>
-              <div class="details">
+              <div class="details course-card">
                 <div class="details-inner">
                   <h5 class="mb-md-3 mb-sm-2">
                     <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
@@ -248,12 +249,13 @@
                       </div>
                     </div>
                     <div class="col-6 align-self-center text-right">
-                      <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                      <a class="readmore-text border-btn" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+             </div>
         </div>
           @endforeach
         </div>
