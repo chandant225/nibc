@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Course;
 use App\Models\College;
 use App\Models\AcademicDegree;
+use Illuminate\Support\Str;
 
 class CountryController extends Controller
 {

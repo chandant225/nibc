@@ -43,6 +43,9 @@
                 <h4 class="mb-md-3 mb-sm-2"><a href="{{route('country.show',['slug'=> $country->slug])}}" class="card-title">
                  {{$country->title}}</a>
                 </h4>
+                  <p>
+                  {!! Str::limit( $country->short_description, 80, ' ...') !!}
+                  </p> 
               <div class="flex flex-row justify-between items-center">
                 <div class="rating-inner">
                     @if($country->rating === 1)

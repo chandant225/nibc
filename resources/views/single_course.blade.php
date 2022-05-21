@@ -172,7 +172,7 @@
                     <div class="details-inner">
                        <h4> <a class="card-title" href="{{route('country.show',['slug'=> $country->slug])}}">{{ $country->title}}</a></h4>
                       <p>
-                        {!! Str::words( $country->overview, 25, ' ...') !!}
+                          {!! Str::limit( $country->short_description, 80, ' ...') !!}
                       </p>
                     </div>
                     <div class="bottom-area">

@@ -189,6 +189,7 @@
                           <h4 class="mb-md-3 mb-sm-2">
                             <a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
                           </h4>
+                          
                           <div class="cat-area">
                             <?php
                              $avaliableCountry = explode(',',$course->avaliable_in_country);
