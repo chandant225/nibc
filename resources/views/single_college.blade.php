@@ -177,7 +177,7 @@
                           </div>
                         </div>
                         <div class="col-6 align-self-center text-right">
-                          <a class="readmore-text" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                          <a class="readmore-text border-btn" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
                         </div>
                       </div>
                     </div>
