@@ -100,19 +100,7 @@
             </div>
             <!-- sidebar -->
             <div class="col-lg-4 col-12">
-                <div class="td-sidebar">
-                    <div class="widget widget_search">
-                        <form class="search-form">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search">
-                            </div>
-                            <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>                  
-                    <div class="widget widget-recent-post">                            
-                      <h4 class="py-2">{{'Colleges in' . " "}}</h4>
-            
-                    </div>
+                <div class="td-sidebar">                 
                     <div class="widget widget_catagory">
                         <h4 class="widget-title">Countries</h4>
                                                       
