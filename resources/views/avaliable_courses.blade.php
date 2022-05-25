@@ -38,7 +38,7 @@
                   <center class="py-6">
                     <i id="error_icon" class="fas fa-exclamation-triangle text-danger"></i>
                   </center>
-                  <h4 class="py-2">{{'Sorry, No courses are avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug . "."}}</h4>
+                  <h4 class="py-2">{{'Sorry, No courses are avaliable for' . " " . $degree . "."}}</h4>
                   <div class="d-flex justify-content-end">
                     <a class="avaliable-course-btn" href="{{url()->previous()}}">
                       << Go back
