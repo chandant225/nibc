@@ -25,9 +25,9 @@ class Footer_Data extends ServiceProvider
      */
     public function boot()
     {
-        $this->footer_data = Footerdata::orderBy('updated_at','DESC')->first();
-        view()->composer('layouts.footer',function($view) {
-            $view->with(['footer_data' => $this->footer_data]);
-        });
+        // $this->footer_data = Footerdata::orderBy('updated_at','DESC')->first();
+        // view()->composer('layouts.footer',function($view) {
+        //     $view->with(['footer_data' => $this->footer_data]);
+        // });
     }
 }
