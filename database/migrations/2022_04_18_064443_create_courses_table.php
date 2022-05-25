@@ -17,8 +17,6 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
-            $table->string('college_slug');
-            $table->string('country_slug');
             $table->string('degree_slug');
             $table->integer('rating');
             $table->string('avaliable_in_country');

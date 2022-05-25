@@ -75,25 +75,13 @@
             </div>
             <div class="tab-pane fade" id="tab4" role="tabpanel"
             aria-labelledby="tab4-tab">
-            <div class="row">
-              @foreach ($colleges as $college)
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="item">
-                  <div class="single-course-inner shadow">
-                    <div class="thumb">
-                      <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><img src="/storage/{{$college->image}}" alt="{{$college->title}}" class="card-image" /></a>
-                    </div>
-                  <h5 class="ms-4 mt-3"><a class="card-title" href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h5>
-                  <div class="d-flex flex-row justify-content-between px-4 py-3"> 
-                     <a href="{{route('fees.show',['country_slug'=>$college->country_slug,'college_slug'=>$college->slug,'degree_slug'=>$course->degree_slug,'course_slug'=>$course->slug])}}"><button class="avaliable-college">view fees</button></a>
-                     <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><button class="avaliable-college">view details</button></a>
-                  </div>
+              <div>
+                  
+              <livewire:single-course-colleges newdata="{{$course->avaliable_in_country}}" />
               </div>
-            </div>
+              
           </div>
-              @endforeach
-            </div>
-          </div>
+          
           </div>
         </div>
       </div>
@@ -108,13 +96,13 @@
               <li>
                 <div class="media">
                   <div style="width:50%;" class="media-left">
-                    <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">
+                    <a href="{{route('course.show',['slug' => $course->slug])}}">
                       <img src="/storage/{{$course->image}}" class="w-75 h-100" alt="{{$course->title}}" />
                     </a>
                   </div>
                   <div class="media-body align-self-center">
                     <h5 class="title">
-                      <a  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
+                      <a  href="{{route('course.show',['slug' => $course->slug])}}">{{$course->title}}</a>
                     </h5>
                     <div class="post-info">
                       <i class="fa fa-calendar-times-o"></i>{{$course->created_at->toDateString()}}

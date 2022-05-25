@@ -1,5 +1,15 @@
 
-      <!-- footer area start -->
+   @if(!$footer_data)
+         <p>footer data is not available yet.</p>
+      @elseif($footer_data)
+         <!-- navbar start -->
+      <div id="mySidenav" class="sidenav">
+         <a href="{{$footer_data->facebook_link}}" class="fa fa-facebook" id="facebook"></a>
+         <a href="{{$footer_data->twitter_link}}" class="fa fa-twitter" id="twitter"></a>
+         <a href="{{$footer_data->instagram_link}}" class="fa fa-instagram" id="instagram"></a>
+         <a href="{{$footer_data->whatsapp_link}}" class="fa fa-whatsapp"  id="whatsapp"></a>
+        </div>
+     <!-- footer area start -->
       <div class="footer-call-to-action">
         <div class="container">
           <div class="call-to-action bg-red">
@@ -31,31 +41,27 @@
               <div class="widget-title">
                 <a href="{{route('home')}}"
                   ><img
-                    src="/assets/img/logo.jpg"
+                    src="/storage/{{$footer_data->footer_img}}"
                     alt="NIBC educational foundation logo"
                     width="200"
                 /></a>
               </div>
-              <ul class="details">
-                <li>
-                  You can start and finish one of these popular courses in
-                  under a day - for free! Check out the list below..
-                </li>
-              </ul>
+             
+                {{$footer_data->description}}
               <div class="col-md-6 align-self-center text-md-right">
                 <strong>Follow us on: </strong>
                 <ul class="social-media-2 style-black mt-3 mt-md-0 d-inline-block">
                     <li>
-                        <a href="#"><i class="fab fa-facebook-square  text-gray-100" aria-hidden="true"></i></a>
+                        <a href="{{$footer_data->facebook_link}}"><i class="fab fa-facebook-square  text-gray-100" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fab fa-twitter-square  text-gray-100" aria-hidden="true"></i></a>
+                        <a href="{{$footer_data->twitter_link}}"><i class="fab fa-twitter-square  text-gray-100" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fab fa-instagram  text-gray-100" aria-hidden="true"></i></a>
+                        <a href="{{$footer_data->instagram_link}}"><i class="fab fa-instagram  text-gray-100" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fab fa-whatsapp  text-gray-100" aria-hidden="true"></i></a>
+                        <a href="{{$footer_data->whatsapp_link}}"><i class="fab fa-whatsapp  text-gray-100" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -78,11 +84,10 @@
             <div class="widget widget_contact pr-lg-3">
               <h4 class="widget-title">Contact Us</h4>
               <ul class="details style-icon">
-                <li><i class="fa fa-phone"></i> +977 123456789</li>
-                <li><i class="fas fa-envelope"></i> info@example.com</li>
+                <li><i class="fa fa-phone"></i>{{$footer_data->contact_no}}</li>
+                <li><i class="fas fa-envelope"></i>{{$footer_data->email}}</li>
                 <li>
-                  <i class="fa fa-map-marker"></i> New Baneshwor, Kathmandu,
-                  Nepal
+                  <i class="fa fa-map-marker"></i>{{$footer_data->address}}</li>
                 </li>
               </ul>
             </div>
@@ -116,3 +121,5 @@
     <span class="back-top"><i class="fa fa-angle-up"></i></span>
   </div>
   <!-- back to top area end -->
+
+  @endif

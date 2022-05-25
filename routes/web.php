@@ -38,7 +38,7 @@ Route::get('/country/{slug}',[CountryController::class, 'show'])->name('country.
 
 Route::get('/courses',[CourseController::class, 'index'])->name('course.index');
 
-Route::get('/course/{country_slug}/{slug}',[CourseController::class, 'show'])->name('course.show');
+Route::get('/course/{slug}',[CourseController::class, 'show'])->name('course.show');
 
 Route::get('/contact',[ContactController::class, 'index'])->name('contact-us');
 
@@ -52,7 +52,7 @@ Route::post('/comment/add',[CommentController::class,'store'])->name('comment.st
 
 Route::get('/category/{slug}',[PageController::class,'filtered_blogs'])->name('filtered_blogs');
 
-Route::get('/courses/{country_slug}/{degree_slug}', [PageController::class,'avaliable_courses'])->name('avaliable_courses');
+Route::get('/courses/{degree_slug}', [PageController::class,'avaliable_courses'])->name('avaliable_courses');
 
 Route::get('/fee_structures/{country_slug}/{college_slug}/{degree_slug}/{course_slug}',[FeeStructureController::class,'show'])->name('fees.show');
 

@@ -3461,6 +3461,7 @@ button {
     border-radius: 4px;
     font-size: 14px;
     display: inline-block;
+    margin-top: 5px;
 }
 .single-course-inner .details {
     position: relative;
@@ -4594,7 +4595,7 @@ a:hover {
     background: #c258a0;
 }
 
-#linkedin {
+#whatsapp {
     top: 218px;
 }
 
@@ -4610,8 +4611,8 @@ a:hover {
     color: white;
 }
 
-.fa-linkedin {
-    background: #007bb5;
+.fa-whatsapp {
+    background: #266d1f;
     color: white;
 }
 
@@ -4664,4 +4665,28 @@ a:hover {
     background: white;
     color: #1b74ac;
     border: 1px solid;
+}
+
+button.courses_college_btn {
+    background-color: #007bc5;
+    color: white;
+    padding: 1px 20px;
+    border-radius: 4px;
+    margin: 2px 2px 0px 0px;
+    /* padding: 15px 25px; */
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: 0 1px #999;
+}
+
+button.courses_college_btn:hover {
+    background-color: #007bc5;
+}
+
+button.courses_college_btn:active {
+    background-color: #007bc5;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }

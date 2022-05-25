@@ -47,16 +47,15 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $country_slug $slug 
+     * @param  string  $slug 
      * @return \Illuminate\Http\Response
      */
-    public function show($country_slug,$slug)
+    public function show($slug)
     {
         $countries = Country::orderBy('updated_at','DESC')->get();
         $courses = Course::orderBy('updated_at','DESC')->get();
-        $colleges = College::where('country_slug', $country_slug)->get();
-        $course = Course::where('slug',"=", $slug)->where('country_slug',"=",$country_slug)->first();
-        return view('single_course')->with(['course'=>$course,'courses'=>$courses,'countries'=>$countries,'colleges' => $colleges]);
+        $course = Course::where('slug', $slug)->first();
+        return view('single_course')->with(['course'=>$course,'courses'=>$courses,'countries'=>$countries]);
     }
 
     /**

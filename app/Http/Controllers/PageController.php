@@ -11,6 +11,7 @@ use App\Models\Slider;
 use App\Models\BlogCategory;
 use App\Models\AcademicDegree;
 use App\Models\College;
+use App\Models\About;
 
 
 
@@ -27,10 +28,11 @@ class PageController extends Controller
     }
 
     public function about_us() {
+        $about = About::orderBy('updated_at','DESC')->first();
         $countries = Country::orderBy('updated_at','DESC')->get();
         $courses = Course::orderBy('updated_at','DESC')->get();
         return view('about')
-        ->with(['countries' => $countries, 'courses' => $courses]);
+        ->with(['countries' => $countries, 'courses' => $courses,'about' => $about]);
 
     }
 
@@ -51,13 +53,13 @@ class PageController extends Controller
         ->with(['blogs' => $blogs, 'categories' => $categories, 'sidebar_blogs' => $sidebar_blogs,'countries' => $countries, 'courses' => $courses]);
     }
 
-    public function avaliable_courses($country_slug,$degree_slug) {
+    public function avaliable_courses($degree_slug) {
         $countries = Country::orderBy('updated_at','DESC')->get();
         $courses = Course::orderBy('updated_at','DESC')->get();
-        $colleges = College::where('country_slug',$country_slug)->get();
-        $avaliable_courses = Course::where('country_slug', '=',$country_slug)->where('degree_slug', '=', $degree_slug)->get();
+        // $colleges = College::where('country_slug',$country_slug)->get();
+        $avaliable_courses = Course::where('degree_slug', $degree_slug)->get();
         return view('avaliable_courses')
-        ->with(['countries' => $countries, 'courses' => $courses,'avaliable_courses'=>$avaliable_courses,'degree'=>$degree_slug,'country_slug' => $country_slug,'colleges'=>$colleges]);
+        ->with(['countries' => $countries, 'courses' => $courses,'avaliable_courses'=>$avaliable_courses,'degree'=>$degree_slug]);
     }
 
     public function search_college(Request $request){

@@ -137,7 +137,7 @@
                   <div class="p-1">
                     <h5 style="">{{$degree->title}}</h5>
                   </div>
-                  <a style="text-decoration:none" class="" href="{{route('avaliable_courses',['country_slug'=>$country->slug, 'degree_slug'=>$degree->slug])}}"><button style="" class="academic-btn">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
+                  <a style="text-decoration:none" class="" href="{{route('avaliable_courses',['degree_slug'=>$degree->slug])}}"><button style="" class="academic-btn">Check Avalibillity <i class="far fa-hand-point-right"></i></button></a>
                 </div>
                 @endforeach
               </div>

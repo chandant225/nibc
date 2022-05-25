@@ -68,7 +68,7 @@
             <div class="course-details-content">
               {!! $college->requirement !!}
             </div>
-          </div>procedure
+          </div>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
               <div class="item">
                 <div class="single-course-inner shadow">
                   <div class="thumb relative">
-                    <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"><img
+                    <a href="{{route('course.show',['slug' => $course->slug,])}}"><img
                      src="/storage/{{$course->image}}"
                       alt="img"
                       class="card-image"
@@ -148,7 +148,7 @@
                   </div>
                   <div class="details">
                     <div class="details-inner">
-                        <h5><a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{ $course->title}}</a></h5>
+                        <h5><a class="card-title" href="{{route('course.show',['slug' => $course->slug])}}">{{ $course->title}}</a></h5>
                       <p>
                         {!! Str::words( $course->overview, 25, ' ...') !!}
                       </p>
@@ -181,7 +181,7 @@
                           </div>
                         </div>
                         <div class="col-6 align-self-center text-right">
-                          <a class="readmore-text border-btn" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                          <a class="readmore-text border-btn" href="{{route('course.show',['slug' => $course->slug])}}">Read More</a>
                         </div>
                       </div>
                     </div>

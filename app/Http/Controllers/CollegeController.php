@@ -47,7 +47,7 @@ class CollegeController extends Controller
      */
     public function show($country_slug,$slug)
     {
-        $courses = Course::where('college_slug', $slug)->get();
+        $courses = Course::all();
         $college = College::where('slug', $slug)->first();
         $colleges = College::where('country_slug',$country_slug)->get();
         return view('single_college')->with(['college' => $college, 'colleges' => $colleges,'courses' => $courses ]);

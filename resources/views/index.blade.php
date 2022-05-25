@@ -182,12 +182,12 @@
                   <div class="item">
                     <div style="" class="single-course-inner shadow">
                       <div class="thumb">
-                       <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"> <img class="card-image" src="/storage/{{$course->image}}" alt="img" /></a>
+                       <a href=""> <img class="card-image" src="/storage/{{$course->image}}" alt="img" /></a>
                       </div>
                       <div class="details course-card">
                         <div class="details-inner">
                           <h4 class="mb-md-3 mb-sm-2">
-                            <a class="card-title" href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">{{$course->title}}</a>
+                            <a class="card-title" href="">{{$course->title}}</a>
                           </h4>
                           
                           <div class="cat-area">
@@ -227,7 +227,7 @@
                               </div>
                             </div>
                             <div class="col-6 align-self-center text-right">
-                              <a class="readmore-text border-btn"  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                              <a class="readmore-text border-btn"  href="{{route('course.show',['slug' => $course->slug])}}">Read More</a>
                             </div>
                           </div>
                         </div>

@@ -47,19 +47,19 @@
                 </div> 
               </section>
               @elseif($avaliable_courses->IsNotEmpty())
-              <h5 class="py-2">{{'List of courses avaliable for' . " " . $degree . " " . 'in' . " " . $country_slug}}</h5>
+              <h5 class="py-2">{{'List of courses avaliable for' . " " . $degree}}</h5>
               <div class="row">
               @foreach ($avaliable_courses as $course)
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <div class="item">
                     <div class="single-course-inner shadow-sm">
                       <div class="thumb">
-                      <a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}"><img 
+                      <a href="{{route('course.show',['slug' => $course->slug])}}"><img 
                         class="card-image"
                         src="/storage/{{$course->image}}" alt={{$course->title}} /></a>
                       </div>
                      <div class="p-3">
-                     <h4><a href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}" class="card-title">
+                     <h4><a href="{{route('course.show',['slug' => $course->slug])}}" class="card-title">
                       {{$course->title}}</a>
                      </h4>
                    <div class="flex flex-row justify-between items-center">
@@ -87,7 +87,7 @@
                          @endif
                        </div>
                        <div class="text-right">
-                        <a class="readmore-text border-btn"  href="{{route('course.show',['slug' => $course->slug,'country_slug' => $course->country_slug])}}">Read More</a>
+                        <a class="readmore-text border-btn"  href="{{route('course.show',['slug' => $course->slug])}}">Read More</a>
                       </div>
                    </div>
                   </div>
@@ -110,24 +110,8 @@
                         </form>
                     </div>                  
                     <div class="widget widget-recent-post">                            
-                      <h4 class="py-2">{{'Colleges in' . " " . $country_slug}}</h4>
-                        <ul>
-                         @foreach($colleges as $college)
-                            <li>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">
-                                            <img src="/storage/{{$college->image}}" alt="blog" class="object-cover"   width="80"
-                                            height="80">
-                                        </a>
-                                    </div>
-                                    <div class="media-body align-self-center">
-                                        <h5 class="title"><a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h5>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
+                      <h4 class="py-2">{{'Colleges in' . " "}}</h4>
+            
                     </div>
                     <div class="widget widget_catagory">
                         <h4 class="widget-title">Countries</h4>
