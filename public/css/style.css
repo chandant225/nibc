@@ -702,7 +702,7 @@ button {
 .back-to-top {
     position: fixed;
     right: 30px;
-    bottom: 30px;
+    bottom: 100px;
     width: 44px;
     height: 44px;
     color: #fff;

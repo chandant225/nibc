@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Country;
 use App\Models\Contact;
-
+use App\Models\GoogleMap;
 class ContactController extends Controller
 {
     /**
@@ -18,8 +18,9 @@ class ContactController extends Controller
     {
         $countries = Country::orderBy('updated_at','DESC')->get();
         $courses = Course::orderBy('updated_at','DESC')->get();
+        $google_map = GoogleMap::orderBy('updated_at','DESC')->first();
         return view('contact')
-        ->with(['countries' => $countries, 'courses' => $courses]);
+        ->with(['countries' => $countries, 'courses' => $courses,'google_map'=>$google_map]);
     }
 
     /**

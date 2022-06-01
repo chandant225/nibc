@@ -12,6 +12,7 @@ use App\Models\BlogCategory;
 use App\Models\AcademicDegree;
 use App\Models\College;
 use App\Models\About;
+use App\Models\GoogleMap;
 
 
 
