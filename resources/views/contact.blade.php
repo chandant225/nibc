@@ -81,7 +81,11 @@
         <!-- contact area end-->
 
         <div class="contact-g-map">
-            {!! $google_map->google_map !!}
+            @if (!$google_map)
+                <p>Map is not available yet.</p>
+            @elseif($google_map)
+                {!! $google_map->google_map !!}
+            @endif
         </div>
     </div>
 @endsection
