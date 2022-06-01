@@ -82,7 +82,9 @@
 
         <div class="contact-g-map">
             @if (!$google_map)
-                <p>Map is not available yet.</p>
+                <div class="container">
+                    <p>Map is not available yet.</p>
+                </div>
             @elseif($google_map)
                 {!! $google_map->google_map !!}
             @endif
