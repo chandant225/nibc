@@ -14,9 +14,10 @@ class SingleCourseColleges extends Component
        $this->colleges = College::where('country_slug',Str::lower($country_slug))->get();
     }
     
-    public function mount($newdata) {
+    public function mount($newdata,$courseData) {
     
        $this->data = explode(',',$newdata);
+    
      
                             
     }

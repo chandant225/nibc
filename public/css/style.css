@@ -4690,3 +4690,9 @@ button.courses_college_btn:active {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+@media screen and (max-width: 480px) {
+    #mySidenav {
+        display: none;
+    }
+}
