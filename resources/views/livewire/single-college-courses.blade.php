@@ -8,9 +8,9 @@
 
     <div>
         @if (!$courseData)
-            <p style="margin-top:18px; font-size: 20px;">click above to see the colleges</p>
+            <p style="margin-top:18px; font-size: 20px;">No courses available for this college</p>
         @elseif(count($courseData) === 0)
-            <p style="margin-top:18px; font-size: 20px;">No colleges available for this course</p>
+            <p style="margin-top:18px; font-size: 20px;">No courses available for this college</p>
         @elseif(count($courseData) >= 1)
             <div style="margin-top: 30px;" class="row">
                 @foreach ($courseData as $course)
