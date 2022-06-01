@@ -101,7 +101,8 @@ $add = is_null($dataTypeContent->getKey());
                                 </div>
                             @endforeach
 
-                            <div style="display: flex; flex-direction: column;align-content: center;justify-content:space-around; align-items: stretch;"
+                            <div style="height: 100vh;"
+                                style="display: flex; flex-direction: column;align-content: center;justify-content:space-around; align-items: stretch;"
                                 class="form-group col-md-12">
                                 <label>select courses</label>
                                 @foreach ($courses as $course)
