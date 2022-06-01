@@ -18,10 +18,11 @@
                         <ul>
                             <li>
                                 <div class="d-flex justify-content-start align-items-center w-75 shadow-sm rounded">
-                                    <a href=""><img style="width: 10vw;height: 12vh;"
-                                            src="/storage/{{ $course->image }}" alt="{{ $course->title }}" /></a>
+                                    <a href="{{ route('course.show', ['slug' => $course->slug]) }}"><img
+                                            style="width: 10vw;height: 12vh;" src="/storage/{{ $course->image }}"
+                                            alt="{{ $course->title }}" /></a>
                                     <h6 class="ms-4 mt-3"><a class="card-title text-center"
-                                            href="">{{ $course->title . '-' . strtoupper($course->degree_slug) }}</a>
+                                            href="{{ route('course.show', ['slug' => $course->slug]) }}">{{ $course->title }}</a>
                                     </h6>
                                 </div>
                             </li>
