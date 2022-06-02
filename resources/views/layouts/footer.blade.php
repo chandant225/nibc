@@ -121,8 +121,14 @@
     <!-- footer area end -->
 
     <!-- back to top area start -->
-    <div class="back-to-top">
+    <div onclick="topFunction()" class="back-to-top">
         <span class="back-top"><i class="fa fa-angle-up"></i></span>
     </div>
     <!-- back to top area end -->
 @endif
+<script>
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>

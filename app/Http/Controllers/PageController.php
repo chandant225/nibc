@@ -13,6 +13,7 @@ use App\Models\AcademicDegree;
 use App\Models\College;
 use App\Models\About;
 use App\Models\GoogleMap;
+use App\Models\VideoSlider;
 
 
 
@@ -24,8 +25,9 @@ class PageController extends Controller
         $courses = Course::orderBy('updated_at','DESC')->get();
         $blogs = Blog::orderBy('updated_at','DESC')->get();
         $sliders = Slider::orderBy('updated_at','DESC')->get();
+        $videoslider = VideoSlider::orderBy('updated_at','DESC')->get();
         return view('index')
-        ->with(['countries' => $countries, 'blogs' => $blogs,'courses' => $courses,'sliders' => $sliders]);
+        ->with(['countries' => $countries, 'blogs' => $blogs,'courses' => $courses,'sliders' => $sliders,'videoslider'=>$videoslider]);
     }
 
     public function about_us() {
@@ -77,5 +79,7 @@ class PageController extends Controller
         return view('institution')
          ->with(['countries' => $countries, 'courses' => $courses,'colleges' => $colleges]);
     }
+
+    
 
 }

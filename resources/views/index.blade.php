@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        @if (count($sliders) === 0)
+        @if (count($sliders) === 0 || count($videoslider) === 0)
             <center>
                 <p class="text-2xl pt-10 text-red-600 font-semibold">There are no any sliders available yet</p>
             </center>
@@ -15,9 +15,27 @@
                             <div class="absolute top-20">
                             </div>
                         </div>
-
                     </div>
                 @endforeach
+
+                @if ($videoslider)
+                    @foreach ($videoslider as $video)
+                        <div class="swiper-slide">
+                            <div class="relative">
+                                <iframe width="100%" style="height:60vh"
+                                    src="https://www.youtube.com/embed/{{ $video->video_link }}">
+                                </iframe>
+                                <div class="absolute top-20">
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+
+
+
+
+
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -36,7 +54,8 @@
                             <h2 class="title">Explore Our Destinations</h2>
                         </div>
                         <div class="col-lg-4 text-lg-right">
-                            <a href="{{ route('country.index') }}"><button class="index-button">All Countries</button></a>
+                            <a href="{{ route('country.index') }}"><button class="index-button">All
+                                    Countries</button></a>
                         </div>
                     </div>
                 </div>
@@ -163,7 +182,8 @@
                             <h2 class="title">Top Faculties</h2>
                         </div>
                         <div class="col-lg-4 text-lg-right">
-                            <a href="{{ route('course.index') }}"><button class="index-button">All Faculties</button></a>
+                            <a href="{{ route('course.index') }}"><button class="index-button">All
+                                    Faculties</button></a>
                         </div>
                     </div>
                 </div>
@@ -189,7 +209,6 @@
                                                         <a class="card-title"
                                                             href="{{ route('course.show', ['slug' => $course->slug]) }}">{{ $course->title }}</a>
                                                     </h4>
-
                                                     <div class="cat-area">
                                                         <?php
                                                         $avaliableCountry = explode(',', $course->avaliable_in_country);
