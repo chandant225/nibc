@@ -22,8 +22,8 @@
                     @foreach ($videoslider as $video)
                         <div class="swiper-slide">
                             <div class="relative">
-                                <iframe width="100%" style="height:60vh"
-                                    src="https://www.youtube.com/embed/{{ $video->video_link }}">
+                                <iframe width="100%" style="height:60vh" allowfullscreen frameborder="0"
+                                    src="https://www.youtube.com/embed/{{ $video->video_link }}?autoplay=1&mute=1">
                                 </iframe>
                                 <div class="absolute top-20">
                                 </div>
@@ -268,118 +268,80 @@
         <div style="padding: 0px 0px 90px 0px;" class="counter-area bg-gray">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter-inner after-bg">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="thumb">
-                                        <img src="assets/img/icon/1.png" alt="img" />
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <div class="details">
-                                        <h2><span class="counter">5</span>K+</h2>
-                                        <p>Students</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter-inner after-bg">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="thumb">
-                                        <img src="assets/img/icon/2.png" alt="img" />
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <div class="details">
-                                        <h2><span class="counter">5</span>K+</h2>
-                                        <p>Visa Granted</p>
+                    @if (count($counters) === 0)
+                        <p>No counters data avaliable yet</p>
+                    @elseif(count($counters) >= 1)
+                        @foreach ($counters as $counter)
+                            <div class="col-lg-3 col-md-6">
+                                <div class="single-counter-inner after-bg">
+                                    <div style="align-items: center;" class="media">
+                                        <div class="media-left">
+                                            <div class="thumb">
+                                                <img src="/storage/{{ $counter->icon_image }}" alt="img" />
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="details">
+                                                <h2><span class="counter">{{ $counter->number }}</span></h2>
+                                                <p>{{ $counter->title }}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter-inner after-bg">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="thumb">
-                                        <img src="assets/img/icon/3.png" alt="img" />
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <div class="details">
-                                        <h2><span class="counter">5</span>K+</h2>
-                                        <p>Career Benifitited</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter-inner after-bg">
-                            <div class="media">
-                                <div class="media-left">
-                                    <div class="thumb">
-                                        <img src="assets/img/icon/5.png" alt="img" />
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <div class="details">
-                                        <h2><span class="counter">5</span>K+</h2>
-                                        <p>Conference Arranged</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
+
+
                 </div>
             </div>
         </div>
         <!-- counter end -->
 
         <!-- video area start -->
-        <div class="container">
-            <div class="video-area border-radius-8 pd-top-110 pd-bottom-120 jarallax p-md-5 pl-4 pr-4 pt-5 pb-5"
-                style="background-image: url('assets/img/bg/1.png')">
-                <div class="video-area-inner p-xl-5 p-0 mb-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-8 col-lg-10 text-lg-left text-center">
-                                <div class="section-title style-white mb-0">
-                                    <h2 class="title">Transform your career through NIBC.</h2>
-                                    <p class="content mb-0"></p>
+        @if ($homepagevideo)
+            <div class="container">
+                <div class="video-area border-radius-8 pd-top-110 pd-bottom-120 jarallax p-md-5 pl-4 pr-4 pt-5 pb-5"
+                    style="background-image: url('/storage/{{ $homepagevideo->background_image }}')">
+                    <div class="video-area-inner p-xl-5 p-0 mb-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 text-lg-left text-center">
+                                    <div class="section-title style-white mb-0">
+                                        <h2 class="title">{{ $homepagevideo->title }}</hh2>
+                                            <p class="content mb-0"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-2 mt-5 mt-lg-0 text-center align-self-center">
-                                <a data-bs-toggle="modal" data-bs-target="#videoModal" class="video-play-btn"
-                                    href="https://www.youtube.com/embed/Wimkqo8gDZ0" data-effect="mfp-zoom-in"><i
-                                        class="fa fa-play"></i></a>
+                                <div class="col-xl-4 col-lg-2 mt-5 mt-lg-0 text-center align-self-center">
+                                    <a data-bs-toggle="modal" data-bs-target="#videoModal" class="video-play-btn" href=""
+                                        data-effect="mfp-zoom-in"><i class="fa fa-play"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- video area end -->
+            <!-- video area end -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
+
+            <!-- Modal -->
+            <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/{{ $homepagevideo->video_link }}?autoplay=1&mute=1">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <!--blog-area start-->
         <div class="blog-area pd-top-115 mb-5 pb-3">
@@ -435,46 +397,23 @@
         <!--client-area start-->
         <div class="client-area bg-gray pt-5 pd-bottom-90">
             <div class="container">
-
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="item">
-                                <div class="client-thumb text-center">
-                                    <img src="/assets/img/client/1.png" alt="img" />
+                @if (count($clients) === 0)
+                    <p>No clients data avaliable yet.</p>
+                @elseif(count($clients) >= 1)
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($clients as $client)
+                                <div class="swiper-slide">
+                                    <div class="item">
+                                        <div class="client-thumb text-center">
+                                            <img src="storage/{{ $client->client_image }}" alt="img" />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="item">
-                                <div class="client-thumb text-center">
-                                    <img src="assets/img/client/2.png" alt="img" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="item">
-                                <div class="client-thumb text-center">
-                                    <img src="assets/img/client/3.png" alt="img" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="item">
-                                <div class="client-thumb text-center">
-                                    <img src="assets/img/client/4.png" alt="img" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="item">
-                                <div class="client-thumb text-center">
-                                    <img src="assets/img/client/1.png" alt="img" />
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
         <!--client-area end-->

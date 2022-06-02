@@ -14,6 +14,9 @@ use App\Models\College;
 use App\Models\About;
 use App\Models\GoogleMap;
 use App\Models\VideoSlider;
+use App\Models\HomepageVideo;
+use App\Models\Counter;
+use App\Models\Client;
 
 
 
@@ -26,8 +29,11 @@ class PageController extends Controller
         $blogs = Blog::orderBy('updated_at','DESC')->get();
         $sliders = Slider::orderBy('updated_at','DESC')->get();
         $videoslider = VideoSlider::orderBy('updated_at','DESC')->get();
+        $homepagevideo = HomepageVideo::orderBy('updated_at','DESC')->first();
+        $counters = Counter::orderBy('updated_at','DESC')->get();
+        $clients = Client::orderBy('updated_at','DESC')->get();
         return view('index')
-        ->with(['countries' => $countries, 'blogs' => $blogs,'courses' => $courses,'sliders' => $sliders,'videoslider'=>$videoslider]);
+        ->with(['countries' => $countries, 'blogs' => $blogs,'courses' => $courses,'sliders' => $sliders,'videoslider'=>$videoslider,'homepagevideo' => $homepagevideo,'counters' => $counters,'clients'=> $clients]);
     }
 
     public function about_us() {
