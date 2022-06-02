@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        @if (count($sliders) === 0 || count($videoslider) === 0)
+        @if (count($sliders) === 0)
             <center>
                 <p class="text-2xl pt-10 text-red-600 font-semibold">There are no any sliders available yet</p>
             </center>
