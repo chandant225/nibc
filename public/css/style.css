@@ -2419,7 +2419,7 @@ button {
     height: 2px;
     width: 11px;
     top: 18px;
-    background-color: var(--main-color);
+    background-color: #fff;
     left: 7px;
 }
 .toggle-btn .icon-left:before {
@@ -2427,7 +2427,7 @@ button {
     position: absolute;
     width: 11px;
     height: 2px;
-    background-color: var(--main-color);
+    background-color: #fff;
     content: "";
     top: -7px;
     left: 0;
@@ -2437,7 +2437,7 @@ button {
     position: absolute;
     width: 11px;
     height: 2px;
-    background-color: var(--main-color);
+    background-color: #fff;
     content: "";
     top: 7px;
     left: 0;
@@ -2451,7 +2451,7 @@ button {
     height: 2px;
     width: 11px;
     top: 18px;
-    background-color: var(--main-color);
+    background-color: #fff;
     left: 18px;
 }
 .toggle-btn .icon-right:before {
@@ -2459,7 +2459,7 @@ button {
     position: absolute;
     width: 11px;
     height: 2px;
-    background-color: var(--main-color);
+    background-color: #fff;
     content: "";
     top: -7px;
     left: 0;
@@ -2469,7 +2469,7 @@ button {
     position: absolute;
     width: 11px;
     height: 2px;
-    background-color: var(--main-color);
+    background-color: #fff;
     content: "";
     top: 7px;
     left: 0;
