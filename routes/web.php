@@ -62,9 +62,9 @@ Route::get('/college/{country_slug}/{slug}', [CollegeController::class,'show'])-
 
 Route::get('/institution', [PageController::class, 'institution'])->name('institution');
 
-
-
-
+Route::get('/cmrit',function() {
+    return view('cmrit');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
