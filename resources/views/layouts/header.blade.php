@@ -14,9 +14,9 @@
                         src="/storage/{{ setting('site.logo') }}" alt="img" /></a>
             </div>
 
-            <div class="nav-right-part nav-right-part-mobile">
+            {{-- <div class="nav-right-part nav-right-part-mobile">
                 <a class="search-bar-btn" href="#"><i class="fa fa-search"></i></a>
-            </div>
+            </div> --}}
             <div class="collapse navbar-collapse" id="nibc_main_menu">
                 <ul class="navbar-nav text-right menu-open">
                     <li class="current-menu-item">
