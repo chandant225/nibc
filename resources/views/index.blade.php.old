@@ -88,7 +88,7 @@
                                             </div>
                                             <div class="bottom-area">
                                                 <div class="row">
-                                                    <div class="col-lg-6 align-self-center">
+                                                    <div class="col-6 align-self-center">
                                                         <div class="rating-inner">
                                                             @if ($country->rating === 1)
                                                                 <i class="fa fa-star"></i>
@@ -113,7 +113,7 @@
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6 align-self-center text-right">
+                                                    <div class="col-6 align-self-center text-right">
                                                         <a class="readmore-text border-btn"
                                                             href="{{ route('country.show', ['slug' => $country->slug]) }}">Read
                                                             More</a>
@@ -220,7 +220,7 @@
                                                 </div>
                                                 <div class="bottom-area">
                                                     <div class="row">
-                                                        <div class="col-lg-6 align-self-center">
+                                                        <div class="col-6 align-self-center">
                                                             <div class="rating-inner">
                                                                 @if ($course->rating === 1)
                                                                     <i class="fa fa-star"></i>
@@ -245,7 +245,7 @@
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6 align-self-center text-right">
+                                                        <div class="col-6 align-self-center text-right">
                                                             <a class="readmore-text border-btn"
                                                                 href="{{ route('course.show', ['slug' => $course->slug]) }}">Read
                                                                 More</a>
@@ -265,7 +265,7 @@
         <!--course-area end-->
 
         <!-- counter start -->
-        <div style="padding: 45px 0px 45px 0px;" class="counter-area bg-gray">
+        <div style="padding: 0px 0px 90px 0px;" class="counter-area bg-gray">
             <div class="container">
                 <div class="row">
                     @if (count($counters) === 0)

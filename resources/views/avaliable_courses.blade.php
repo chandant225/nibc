@@ -106,7 +106,7 @@
                                                       
                         <ul class="catagory-items">
                            @foreach ($countries as $country)
-                            <li><a href="{{route('country.show',['slug'=> $country->slug])}}"><i class="fa fa-angle-right"></i>{{$country->title}}</a></li>
+                            <li><a href="{{route('country.show',['slug'=> $country->slug])}}">{{$country->title}}</a></li>
                           @endforeach
                         </ul>
                     </div>

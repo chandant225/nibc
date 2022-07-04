@@ -11,16 +11,16 @@
         @elseif(count($colleges) >= 1)
         <div style="margin-top: 30px;" class="row">
         @foreach($colleges as $college)
-           <div class="col-12">
-             <ul>
-                 <li>
-                    <div class="d-flex justify-content-start align-items-center w-50 shadow-sm rounded">
-                      <a href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"><img style="width: 10vw;height: 12vh;" src="/storage/{{$college->image}}" alt="{{$college->title}}" /></a>
-                      <h6 class="ms-4 mt-3"><a class="card-title text-center" href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h6>
+           <div class="col-lg-4 col-md-6 col-12 course-area">
+                        <div class="item">
+                       <div class="single-course-inner shadow">
+                        <div class="thumb"> 
+                          <a  href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}"> <img src="/storage/{{ $college->image }}" class="card-image" alt="{{$college->title}}" /></a>
+                        </div>
+                            <h5 class="px-3 py-3"><a class="card-title text-center" href="{{route('college_details',['country_slug'=> $college->country_slug,'slug'=> $college->slug])}}">{{$college->title}}</a></h5>
+                        </div>     
+                      </div>  
                     </div>
-                </li>
-             </ul>
-           </div>
         @endforeach
         </div>
         @endif

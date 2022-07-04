@@ -45,6 +45,9 @@
                     </li>
                     <li><a style="text-decoration:{{ Route::currentRouteName() === 'contact-us' ? 'underline' : 'none' }}"
                             href="{{ route('contact-us') }}">Contact Us</a></li>
+                    <li class="d-lg-none">
+                        <a href="javascript:" data-bs-toggle="modal" data-bs-target="#exampleModal">Get Started</a>
+                    </li>
                 </ul>
             </div>
             <div class="nav-right-part nav-right-part-desktop style-white">
@@ -60,9 +63,10 @@
 </div>
 <!-- navbar end -->
 
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Get Started</h5>
@@ -107,3 +111,5 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+

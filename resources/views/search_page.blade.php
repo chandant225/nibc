@@ -23,13 +23,12 @@
 </div>
 <!-- page title end -->
     @if($search_results->IsEmpty())
-        <div class="">
+        <div class="container my-5">
           <center class="py-6">
-            <i id="error_icon" class="fas fa-exclamation-triangle"></i>
           </center>
-          <p class="">Sorry, we couldn't find the search result.</p>
-          <div class="">
-            <a class="" href="/"><button class="">Go back >></button></a>
+          <h4 class="">Sorry, we couldn't find any result based on your options.</h4>
+          <div class="mt-5">
+            <a class="btn btn-success" href="/"><b>Go back </b></a>
           </div>
         </div>
     @elseif($search_results->IsNotEmpty())
@@ -52,8 +51,8 @@
         </div>     
       </div>  
     </div>  
-  </div>  
        @endforeach
+        </div> 
        
     </div>
   </div>

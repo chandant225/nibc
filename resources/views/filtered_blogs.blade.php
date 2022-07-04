@@ -89,7 +89,7 @@
                             <h4 class="widget-title">Catagory</h4>                                 
                             <ul class="catagory-items">
                                 @foreach($categories as $category)
-                                <li><a href="{{route('filtered_blogs',['slug' => $category->slug])}}"><i class="fa fa-angle-right"></i>{{$category->title}}</a></li>
+                                <li><a href="{{route('filtered_blogs',['slug' => $category->slug])}}">{{$category->title}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
